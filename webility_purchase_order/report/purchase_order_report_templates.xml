@@ -25,7 +25,7 @@
             <attribute name="style">display:none;</attribute>
         </xpath>
     </template>
-    <template id="address_layout_custom1" inherit_id="web.address_layout">
+    <template id="address_layout_custom2" inherit_id="web.address_layout">
         <xpath expr="//div[@t-if='address']" position="replace">
             <div t-if="address" class="address row " title="This block is not always present depending on the printed document.">
                 <div name="address" class="col-6">
