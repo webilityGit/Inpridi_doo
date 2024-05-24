@@ -14,10 +14,21 @@
         </xpath>
     </template>
 -->
-    <template id="address_layout_custom" inherit_id="web.address_layout">
+    <template id="external_layout_standard_custom" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[hasclass('pt-5')]" position="attributes">
+            <attribute name="class">pt-0</attribute>
+        </xpath>
+        <xpath expr="//div[1]//div[3]" position="attributes">
+            <attribute name="class">pt-0</attribute>
+        </xpath>
+        <xpath expr="//div[@name='company_address']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+    </template>
+    <template id="address_layout_custom1" inherit_id="web.address_layout">
         <xpath expr="//div[@t-if='address']" position="replace">
             <div t-if="address" class="address row " title="This block is not always present depending on the printed document.">
-                <div name="address" t-att-class="'col-6' if information_block else 'col-5 offset-7'">
+                <div name="address" class="col-6">
                     <t t-esc="address or None">
                         <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
                             <strong>Address block</strong>

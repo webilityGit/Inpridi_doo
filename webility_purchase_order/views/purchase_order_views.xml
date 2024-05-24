@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='date_order']" position="before">
-                <field name="dest_address_id"/>
+                <field name="dest_address_id" string="Shipping Address"/>
             </xpath>
         </field>
     </record>
