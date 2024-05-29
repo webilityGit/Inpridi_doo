@@ -7,18 +7,49 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
     <record id="view_account_invoice_report_search" model="ir.ui.view">
         <field name="name">account.invoice.report.search</field>
         <field name="model">account.invoice.report</field>
-        <field name="inherit_id" ref="account.view_account_invoice_report_search" />
+        <field name="inherit_id" ref="account.view_account_invoice_report_search"/>
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="payment_mode_id" />
+                <field name="payment_mode_id"/>
             </field>
             <filter name="category_product" position="after">
                 <filter
-                    string="Payment Mode"
-                    name="payment_mode_id"
-                    context="{'group_by': 'payment_mode_id'}"
+                        string="Payment Mode"
+                        name="payment_mode_id"
+                        context="{'group_by': 'payment_mode_id'}"
                 />
             </filter>
         </field>
     </record>
+
+    <template id="external_layout_bold_footer_inherit" inherit_id="web.external_layout_bold">
+        <xpath expr="//div[@t-attf-class='footer o_clean_footer o_company_#{company.id}_layout']" position="replace">
+            <div class="footer o_clean_footer o_company_#{company.id}_layout">
+                <div class="row text-center">
+                    <div class="col-12 mt-1">
+                        <span class="h4" t-field="company.report_footer"/>
+                    </div>
+                    <div class="col-12">
+                        <span t-if="company.is_company_details_empty" t-field="company.partner_id"
+                              t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                        <span t-else="" t-field="company.company_details"/>
+                    </div>
+                    <div class="col-12">
+                        <div class="mt0 mb0 h5" t-if="company.report_header" t-field="company.report_header">Company
+                            tagline
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <ul t-if="report_type == 'pdf'" class="list-inline pagenumber float-end text-center">
+                            <li class="list-inline-item">
+                                <strong>
+                                    <span class="page"/>
+                                </strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
 </odoo>

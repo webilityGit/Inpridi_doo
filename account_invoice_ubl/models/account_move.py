@@ -25,6 +25,11 @@ class AccountMove(models.Model):
     _name = "account.move"
     _inherit = ["account.move", "base.ubl"]
 
+    tax_closing_show_multi_closing_warning = fields.Boolean(
+        string="Show Multi Closing Warning",
+        help="Check this box to show a warning for multiple closings."
+    )
+
     def _ubl_add_header(self, parent_node, ns, version="2.1"):
         self.ensure_one()
 

@@ -14,6 +14,7 @@
    <!-- ovde ubaciti polja za status slanja i zahtev da se automatski faktura registruje u CRF    -->
    <xpath expr="//field[@name='partner_shipping_id']" position="before">
     <field invisible="1" name="jbkjs"/>
+    <field invisible="1" name="tax_closing_show_multi_closing_warning"/>
     <field invisible="jbkjs == False or is_jn == False" name="auto_crf"/>
     <field name="x_sent_to_sef"/>
     <field invisible="jbkjs == False or is_jn == False" name="x_broj_ugovora_jn"/>
