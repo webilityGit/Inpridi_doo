@@ -8,7 +8,7 @@
                 <field name="dest_address_id" string="Shipping Address"/>
             </xpath>
             <xpath expr="//field[@name='product_qty']" position="before">
-                <field name="product_code" string="Vendor Product Code"/>
+                <field name="product_code" string="Part number #"/>
             </xpath>
         </field>
     </record>
