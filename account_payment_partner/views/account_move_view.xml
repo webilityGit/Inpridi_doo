@@ -21,6 +21,7 @@
    <field name="partner_bank_id" position="before">
     <field domain="[('payment_type', '=', payment_mode_filter_type_domain), ('company_id', '=', company_id)]" invisible="move_type not in ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')" name="payment_mode_id" readonly="state != 'draft'" widget="selection"/>
     <field invisible="1" name="bank_account_required"/>
+    <field invisible="1" name="tax_closing_show_multi_closing_warning"/>
     <field invisible="1" name="payment_mode_filter_type_domain"/>
     <field invisible="1" name="partner_bank_filter_type_domain"/></field>
    <field name="partner_bank_id" position="attributes">

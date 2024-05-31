@@ -13,7 +13,7 @@
     "author": "Akretion, Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/bank-payment",
     "development_status": "Mature",
-    "depends": ["account_payment_mode", "web"],
+    "depends": ["account_payment_mode", "web","sale"],
     "data": [
         "views/res_partner_view.xml",
         "views/account_move_view.xml",

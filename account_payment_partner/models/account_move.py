@@ -9,6 +9,9 @@ from odoo import api, fields, models
 class AccountMove(models.Model):
     _inherit = "account.move"
 
+    tax_closing_show_multi_closing_warning = fields.Boolean(string="Show Multi Closing Warning")
+
+
     payment_mode_filter_type_domain = fields.Char(
         compute="_compute_payment_mode_filter_type_domain"
     )
