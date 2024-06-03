@@ -61,7 +61,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
     <!--            </div>-->
     <!--        </xpath>-->
     <!--    </template>-->
-    <template id="report_saleorder_document_inherit11"
+    <!--<template id="report_saleorder_document_inherit11"
               inherit_id="studio_customization.web_studio_report_ed_ee347967-d810-4ccd-9502-faba8ab1c5cc">
         <xpath expr="/t[@t-name='sale.report_saleorder_document']" position="replace" mode="inner">
             <t t-call="web.external_layout">
@@ -81,12 +81,12 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
             <t t-set="information_block">
                 <strong>
                 <t t-if="doc.partner_shipping_id == doc.partner_invoice_id">
-<!--                    Shipping Address:-->
+&lt;!&ndash;                    Shipping Address:&ndash;&gt;
                 </t>
                 <xpath expr="//div[@t-field='doc.partner_invoice_id']" position="replace">
-                    <!-- Invoicing Address removed -->
+                    &lt;!&ndash; Invoicing Address removed &ndash;&gt;
                 </xpath>
-                <!-- Ensure the shipping address is displayed -->
+                &lt;!&ndash; Ensure the shipping address is displayed &ndash;&gt;
                 <xpath expr="//t[t-if='doc.partner_shipping_id != doc.partner_invoice_id']" position="replace">
                     <strong>Shipping Address:</strong>
                     <div t-field="doc.partner_shipping_id"
@@ -311,5 +311,5 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
                 </div>
             </t>
         </xpath>
-    </template>
+    </template>-->
 </odoo>
