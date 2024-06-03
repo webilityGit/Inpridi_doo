@@ -64,4 +64,21 @@
         </xpath>
     </template>
 
+    <template id="report_saleorder_document_inherit_webility" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-if='doc.partner_shipping_id == doc.partner_invoice_id
+                             and doc.partner_invoice_id != doc.partner_id
+                             or doc.partner_shipping_id != doc.partner_invoice_id']" position="replace">
+
+            <t t-set="information_block">
+
+                 <strong>
+                        Shipping Address:
+                    </strong>
+                    <div t-field="doc.partner_shipping_id"
+                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+
+            </t>
+        </xpath>
+    </template>
+
 </odoo>
