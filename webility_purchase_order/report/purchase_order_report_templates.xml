@@ -116,7 +116,7 @@
             <div class="col-3 bm-2">
                 <strong>Order Date:</strong>
                 <p>
-                    <t t-esc="o.date_approve.strftime('%Y-%m-%d')"/>
+                    <t t-if="o.date_approve" t-esc="o.date_approve.strftime('%Y-%m-%d')"/>
 
                 </p>
             </div>
