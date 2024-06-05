@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  # Copyright 2022 Irvas International (http://www.irvas.rs)
+# @author: Ljubisa Jovev <ljubisa.jovev@irvas.rs>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+-->
+<odoo>
+ <record id="osnov_pdv_izuzece_form" model="ir.ui.view">
+  <field name="model">osnov.pdv.izuzece</field>
+  <field name="arch" type="xml">
+   <form>
+    <sheet>
+     <widget bg_color="bg-danger" invisible="active == True" name="web_ribbon" title="Archived"/>
+     <group name="main">
+      <group name="general">
+       <field name="code"/>
+       <field name="name"/>
+       <field invisible="1" name="active"/>
+      </group>
+      <group name="extra">
+       <field name="unece_categ_id"/>
+      </group>
+      <field name="description"/>
+     </group>
+    </sheet>
+   </form></field>
+ </record>
+ <record id="osnov_pdv_izuzece_tree" model="ir.ui.view">
+  <field name="model">osnov.pdv.izuzece</field>
+  <field name="arch" type="xml">
+   <tree>
+    <field invisible="not context.get('osnov_pdv_izuzece_main_view_view')" name="unece_categ_id"/>
+    <field name="code"/>
+    <field name="name"/>
+    <field name="description"/>
+   </tree></field>
+ </record>
+ <record id="osnov_pdv_izuzece_search" model="ir.ui.view">
+  <field name="model">osnov.pdv.izuzece</field>
+  <field name="arch" type="xml">
+   <search>
+    <field filter_domain="['|', ('name', 'ilike', self), ('code', 'ilike', self)]" name="name" string="Name or Code"/>
+    <field name="code"/>
+    <field name="unece_categ_id"/>
+    <filter domain="[('active', '=', False)]" name="inactive" string="Archived"/>
+    <group name="groupby" string="Group By">
+     <filter context="{'group_by': 'unece_categ_id'}" name="type_groupby" string="PDV kategorija"/>
+    </group>
+   </search></field>
+ </record>
+ <record id="osnov_pdv_izuzece_action" model="ir.actions.act_window">
+  <field name="name">Spisak PDV izuzeca</field>
+  <field name="res_model">osnov.pdv.izuzece</field>
+  <field name="view_mode">tree,form</field>
+  <field name="context">{'osnov_pdv_izuzece_main_view': True}</field>
+ </record>
+ <menuitem action="osnov_pdv_izuzece_action" id="osnov_pdv_izuzece_menu" parent="base.menu_ir_property" sequence="155"/>
+</odoo>

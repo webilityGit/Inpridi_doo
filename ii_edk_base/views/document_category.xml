@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_document_category_form" model="ir.ui.view">
+            <field name="name">ii.edk.lista.kag.form</field>
+            <field name="model">ii.edk.lista.kag</field>
+            <field name="arch" type="xml">
+                <form string="Document Category">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                         <!--
+                            <button class="oe_stat_button" name="account.action_move_line_select"
+                                    type="action" icon="fa-bars">
+                                <div class="o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="current_balance"/>
+                                    </span>
+                                    <span class="o_stat_text">
+                                        Balance
+                                    </span>
+                                </div>
+                            </button> -->
+                        </div>
+                        <field name="company_id" invisible="1"/>
+                        <div>
+                            <h1 style="font-size: 1.9rem;">
+                                <div class="row">
+                                    <div class="col col-md-auto">
+                                        <label for="code" string="Code"/>
+                                        <div>
+                                            <field name="code" placeholder="e.g. 101000" class="oe_inline"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-md-8">
+                                        <label for="name" string="Document Category Name"/>
+                                        <div>
+                                            <field name="name"
+                                                   placeholder="e.g. Current Assets"
+                                                   style="width:80% !important;"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <field name="company_id" invisible="1"/>
+                            </h1>
+                        </div>
+                        <notebook>
+                            <page name="Document Category" string="Document Category">
+                                <group>
+                                    <group>
+                                <!--        <field name="account_type" widget="account_type_selection"/> -->
+                                        <field name="klasifikaciona_oznaka"/>
+                                        <field name="rok_cuvanja_meseci"/>
+                                        <field name="napomena"/>
+                                        <field name="rok_cuvanja_godina"/>
+                                    </group>
+                                    <group>
+                                        <field name="deprecated"/>
+                                        <field name="group_id"/>
+                                         <field name ="default_arh_pozicija"/>
+                                        <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!-- Chatter -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_document_category_list" model="ir.ui.view">
+            <field name="name">ii.edk.lista.kag.list</field>
+            <field name="model">ii.edk.lista.kag</field>
+            <field name="arch" type="xml">
+                <tree editable="top" create="1" delete="1" multi_edit="1" string="Document Category List">
+                    <field name="company_id" invisible="1"/>
+                    <field name="code"/>
+                    <field name="name"/>
+             <!--       <field name="account_type" widget="account_type_selection"/> -->
+                    <field name="group_id" optional="hide"/>
+                    <field name="klasifikaciona_oznaka"/>
+                    <field name="rok_cuvanja_meseci"/>
+                    <field name="napomena"/>
+                    <field name="rok_cuvanja_godina"/>
+                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                    <button name="action_read_document_category" type="object" string="Setup" class="float-end btn-secondary"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_document_category_account_kanban" model="ir.ui.view">
+            <field name="name">ii.edk.lista.kag.kanban</field>
+            <field name="model">ii.edk.lista.kag</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="name"/>
+                    <field name="code"/>
+            <!--        <field name="account_type"/>  -->
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <strong><field name="name"/></strong>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <span class="badge rounded-pill"><t t-esc="record.code.value"/></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <strong>Type: </strong><t t-esc="record.rok_cuvanja_godina.value"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_document_category_search" model="ir.ui.view">
+            <field name="name">ii.edk.lista.kag.search</field>
+            <field name="model">ii.edk.lista.kag</field>
+            <field name="arch" type="xml">
+                <search string="Document Category">
+                    <field name="name" filter_domain="['|', ('name','ilike',self), ('code','ilike',self)]" string="Category"/>
+
+                    <separator/>
+                    <filter string="Category with Entries" name="used" domain="[('used', '=', True)]"/>
+                    <filter string="Active Category" name="activeacc" domain="[('deprecated', '=', False)]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Category Group" name="categorygroup" domain="" context="{'group_by':'group_id'}"/>
+                    </group>
+                  <!--  <searchpanel>
+                        <field name="root_id" icon="fa-filter" limit="0"/>
+                    </searchpanel> -->
+                </search>
+            </field>
+        </record>
+
+        <record id="action_document_category_form" model="ir.actions.act_window">
+            <field name="name">Document Categories</field>
+            <field name="res_model">ii.edk.lista.kag</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="view_document_category_search"/>
+            <field name="view_id" ref="view_document_category_list"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Add a new account
+              </p><p>
+                An account is part of a ledger allowing your company
+                to register all kinds of debit and credit transactions.
+                Companies present their annual accounts in two main parts: the
+                balance sheet and the income statement (profit and loss
+                account). The annual accounts of a company are required by law
+                to disclose a certain amount of information.
+              </p>
+            </field>
+            <field name="context">{'search_default_activeacc': True}</field>
+        </record>
+
+         <record id="action_ii_edk_lista_kag" model="ir.actions.act_window">
+            <field name="name">List of classification</field>
+            <field name="res_model">ii.edk.lista.kag</field>
+        </record>
+
+        <menuitem
+                id="menu_ii_edk_lista_kag"
+                action="action_ii_edk_lista_kag"
+
+                parent="menu_ii_edk_configuration"
+                sequence="13"
+        />
+
+
+
+
+
+        <record id="action_duplicate_document_category" model="ir.actions.server">
+            <field name="name">Duplicate</field>
+            <field name="model_id" ref="model_ii_edk_lista_kag"/>
+            <field name="binding_model_id" ref="ii_edk_base.model_ii_edk_lista_kag"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.action_duplicate_document_category()
+            </field>
+        </record>
+
+    </data>
+</odoo>

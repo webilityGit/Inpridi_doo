@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ii_edk_document_package_form" model="ir.ui.view">
+            <field name="name">ii_edk_document_package_form</field>
+            <field name="model">ii.edk.document.package</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field invisible="True" name="is_initiator"/>
+                    <field invisible="True" name="is_approver"/>
+                    <header>
+                        <button class="oe_highlight" confirm="Please confirm that you want to send documents for approval" invisible="is_initiator != True or state not in ['draft']" name="action_send_for_approval" string="Send for Approval" type="object"/>
+                        <button class="oe_highlight" invisible="is_approver != True or state not in ['approval']" name="action_approve_wizard" string="Approve" type="object"/>
+                        <button class="oe_highlight" groups="account.group_account_manager" invisible="state not in ['approved']" name="action_post_wizard" string="Proknjiženo" type="object"/>
+                        attrs="{'invisible':['|', ('is_approver', '!=', True)]}"/>
+                        <button class="oe_highlight" invisible="is_approver != True or state not in ['approved']" name="action_post_wizard" string="Post" type="object"/>
+                        <button invisible="is_approver != True or state not in ['approval']" name="action_reject_wizard" string="Reject" type="object"/>
+                        <button invisible="is_initiator != True or state not in ['rejected','cancelled']" name="action_draft" string="Set to Draft" type="object"/>
+                        <button confirm="Please confirm that you want to cancel approval process" invisible="is_initiator != True or state not in ['approval']" name="action_cancel" string="Cancel" type="object"/>
+                        <button groups="base.group_system" invisible="state not in ['approved']" name="action_cancel" string="Force Cancel" type="object"/>
+                        <field name="state" statusbar_visible="draft,approval,approved" widget="statusbar"/>
+                        <field name="archive_state" statusbar_visible="approved" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <field class="oe_avatar" name="doc_move" options="{'horizontal': true}" widget="radio"/>
+                        <div class="oe_title">
+                            <h1>
+                                <label for="name" string="Doc. Reference number: "/>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <!--    <field name="name" placeholder="Document Title" nolabel="1" colspan="4"/>  -->
+                        <group>
+                            <group>
+                                <label for="create_date" string="Create Date"/>
+                                <field name="create_date" nolabel="1" readonly="1"/>
+                                <field name="broj_predmeta"/>
+                                <field name="classification_number"/>
+                            </group>
+                            <group>
+                                <field name="document_type"/>
+                                <field name="document_title"/>
+                                <field name="arh_position"/>
+                                <!--
+						        <field name="classification_number"/>
+									
+									<label for="project_document_number" string="Broj proj. dok.: " attrs="{'invisible': [('document_type', '!=', 'project')]}"/>
+									<field name="project_document_number" attrs="{'invisible': [('document_type', '!=', 'project')]}" nolabel="1"/>
+									<label for="old_project_number" string="Stari broj dok.: " attrs="{'invisible': [('document_type', '!=', 'project')]}"/>
+									<field name="old_project_number" attrs="{'invisible': [('document_type', '!=', 'project')]}" nolabel="1"/>
+									-->
+                            </group>
+                        </group>
+                        <group>
+                            <group name="description" string="Description">
+                                <field name="source"/>
+                                <field name="description"/>
+                            </group>
+                            <!--       <group name="ducumentattribubutes" string="Atributi dokumenta"
+                               attrs="{'invisible':[('state', '!=', 'draft')]}">
+                               <field name="document_type"/>  -->
+                            <group name="ducumentattribubutes" string="Document Atributes">
+                                <!--  <field name="document_type"/>
+                                <field name="project_id" attrs="{'invisible': [('document_type', '!=', 'project')]}"/>
+                                <field name="document_project_type_id" attrs="{'invisible': [('document_type', '!=', 'project')]}"/>
+                              -->
+                                <field name="document_date"/>
+                                <field name="document_ref" required="True"/>
+                                <field name="amount_total"/>
+                                <label for="partner_id" string="Partner"/>
+                                <field name="partner_id" nolabel="1" required="True"/>
+                            </group>
+                            <group invisible="state != 'approved' and state != 'posted'" name="Broj fakture u odoo" string="Odoo KUF">
+                                <field name="document_ref_internal" readonly="state != 'approved'"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="workbook_main_user_id"/>
+                        </group>
+                        <!--             <notebook colspan="4" attrs="{'invisible':[('source', '!=', 'sef')]}"> -->
+                        <notebook colspan="4">
+                            <page name="documents" string="Attachements">
+                                <field mod="tree" name="document_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field filename="file_name" name="file"/>
+                                        <field invisible="True" name="file_name"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="name"/>
+                                            <!--        <field name="file" filename="file_name"/> -->
+                                            <field name="file" required="True" widget="pdf_viewer"/>
+                                            <!--      <field name="file_name" invisible="True"/> -->
+                                        </group>
+                                    </form></field>
+                                <!--            <field name="attachment_ids" widget="many2many_binary" class="oe_inline"/> -->
+                            </page>
+                            <!--         <page name="sef_info" string="Informacije sa SEF-a" attrs="{'invisible': [('document_type', '=', 'project')]}">
+                             <group string="statusi iz SEFF-a">
+
+                             <field name="sef_status"/>
+                             <field name="crf_identifikator"/>
+                             <field name="crf_status"/>
+                             <field name="efaktura_id"/>
+                             <field name="datum_dospeca"/>
+                             </group>
+                        </page>    -->
+                            <page name="aprovers" string="Approval process">
+                                <field mod="tree" name="participant_ids">
+                                    <tree editable="bottom">
+                                        <field name="step"/>
+                                        <field name="user_id"/>
+                                        <field name="role"/>
+                                        <field name="state"/>
+                                        <field invisible="True" name="method"/>
+                                        <field name="notes"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="user_id"/>
+                                            <field name="role"/>
+                                            <field name="step"/>
+                                            <field name="state"/>
+                                            <field invisible="True" name="method"/>
+                                            <field name="notes"/>
+                                        </group>
+                                    </form></field>
+                            </page>
+                            <page name="aprovesetup" string="Approval setup">
+                                <group invisible="is_initiator != True">
+                                    <group name="visibility" string="Visibility">
+                                        <field groups="base.group_multi_company" name="company_id"/>
+                                        <field name="visibility"/>
+                                    </group>
+                                    <group name="approval" string="Approval">
+                                        <field name="approval_participant_id"/>
+                                        <field name="method"/>
+                                        <field name="approval_state"/>
+                                        <field name="approval_step"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <!--   <page name="invoice_lines" string="Stavke računa" attrs="{'invisible': [('document_type', '=', 'project')]}">  -->
+                            <!--         <field name="company_id" groups="base.group_multi_company"/>   -->
+                            <!--           <field name="invoice_lines_ids" mod="tree">&gt;
+                                <tree>
+                                    <field name="invoice_line"/>
+                                    <field name="price"/>
+                                    <field name="vat"/>
+                                    <field name="total_price"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="invoice_line"/>
+                                        <field name="price"/>
+                                        <field name="vat"/>
+                                        <field name="total_price"/>
+
+                                    </group>
+                                </form></field>
+                        </page>   -->
+                            <page name="earhivmetadata" string="Document Metadata">
+                                <group>
+                                    <group>
+                                        <field name="izvorni_oblik"/>
+                                        <field name="arh_format"/>
+                                        <field name="datum_nastanka"/>
+                                        <field name="broj_sertifikata"/>
+                                    </group>
+                                    <group>
+                                        <field name="rok_cuvanja"/>
+                                        <field name="datum_arhiviranja"/>
+                                        <field name="datum_potvrde_integriteta"/>
+                                        <field name="rok_za_obnovu"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form></field>
+        </record>
+        <record id="ii_edk_document_package_tree" model="ir.ui.view">
+            <field name="name">ii_edk_document_package_tree</field>
+            <field name="model">ii.edk.document.package</field>
+            <field name="arch" type="xml">
+                <!--      <tree decoration-info="sef_status == 'New'">  -->
+                <tree>
+                    <field name="name"/>
+                    <!--        <field name="project_document_number"/>
+                    <field name="document_type"/>  -->
+                    <field name="document_ref"/>
+                    <field name="document_date"/>
+                    <field name="create_date"/>
+                    <field name="partner_id" string="Partner/User"/>
+                    <field name="document_ref_internal"/>
+                    <!--        <field name="amount_total"/>  -->
+                    <field name="approval_participant_id"/>
+                    <field name="workbook_main_user_id"/>
+                    <field groups="base.group_multi_company" name="company_id"/>
+                    <!--        <field name="sef_status"/>  -->
+                    <field name="state"/>
+                </tree></field>
+        </record>
+        <!--     <record id="ii_edk_document_package_project_tree" model="ir.ui.view">
+            <field name="name">ii_edk_document_package_project_tree</field>
+            <field name="model">ii.edk.document.package</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="state == 'draft'">
+
+                <field name="project_document_number"/>
+                    <field name="document_type" string ="Tip dokumenta"/>
+                    <field name="document_ref"/>
+                    <field name="document_date"/>
+                    <field name="create_date"/>
+                    <field name="partner_id" string = "Korisnik"/>
+
+                    <field name="approval_participant_id"/>
+                    <field name="workbook_main_user_id"/>
+                    <field name="description"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="state"/>
+                </tree></field>
+        </record>  -->
+        <!--     <record id="ii_edk_document_package_project_finansije_tree" model="ir.ui.view">
+            <field name="name">ii_edk_document_package_project_finansije_tree</field>
+            <field name="model">ii.edk.document.package</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="sef_status == 'New'">
+                    <field name="name"/>
+
+                    <field name="document_type"/>
+                    <field name="document_ref"/>
+                    <field name="document_date"/>
+                    <field name="create_date"/>
+                    <field name="partner_id" string = "Partner"/>
+                    <field name="document_ref_internal"/>
+
+                    <field name="approval_participant_id"/>
+                    <field name="workbook_main_user_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="sef_status"/>
+                    <field name="state"/>
+                </tree></field>
+        </record>  -->
+        <record id="ii_edk_document_package_filter" model="ir.ui.view">
+            <field name="name">ii.edk.document.package.select</field>
+            <field name="model">ii.edk.document.package</field>
+            <field eval="15" name="priority"/>
+            <field name="arch" type="xml">
+                <search string="Search documents for approval">
+                    <!--        <field name="name" string="Order" filter_domain="['|', '|', ('name', 'ilike', self), ('client_order_ref', 'ilike', self), ('partner_id', 'child_of', self)]"/>
+             -->
+                    <field name="name" string="Doc. Reference Number"/>
+                    <field name="document_ref" string="Reference to source document"/>
+                    <field name="description" string="Description"/>
+                    <field name="partner_id" operator="child_of"/>
+                    <!--       <field name="project_id" string="Projekat"/>  -->
+                    <field name="workbook_main_user_id"/>
+                    <field name="approval_participant_id" string="Approval Team"/>
+                    <filter domain="[['state', '=', 'approval']]" name="dokumenta_za_odobrenje_filter" string="Za Odobrenje"/>
+                    <!--         <filter string="Novi sa SEF-a" domain="[['sef_status', '=', 'New']]" name="nova_dokumenta_sa_sefa_filter"/>
+                   <filter string="Odobreni na SEF-a" domain="[['sef_status', '=', 'Approved']]" name="nova_dokumenta_sa_sefa_filter"/>
+                    <filter string="Samo Prejektna dokumenta" domain="[['document_type', '=', 'project']]" name="samo_projektna_dokumenta__filter"/>
+            -->
+                    <separator/>
+                    <filter date="datum_dospeca" name="due_date" string="Due date"/>
+                    <separator/>
+                    <filter domain="[('datum_dospeca', '&lt;', time.strftime('%Y-%m-%d'))]" help="Overdue invoices, maturity date passed" name="late" string="Dospele a ne proknjizene"/>
+                    <filter domain="[('datum_dospeca', '&lt;', ((context_today() + relativedelta(days=7)).strftime('%Y-%m-%d')))]" name="dospece_za_narednih_7" string="Dospevaju u narednih 7 dana"/>
+                    <separator/>
+                    <filter domain="[('create_date', '&lt;', datetime.datetime.combine(context_today()+datetime.timedelta(days=0), datetime.time(23,59,59))) ,('create_date', '&gt;=', datetime.datetime.combine(context_today()+datetime.timedelta(days=0), datetime.time(2,0,1))),]" name="today" string="Danas"/>
+                    <filter domain="[('create_date', '&lt;', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(23,59,59))), ('create_date','&gt;=', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(2,0,1))),]" name="yesterday" string="Juče"/>
+                    <filter domain="[('create_date', '&lt;', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(23,59,59))), ('create_date', '&gt;=', datetime.datetime.combine(context_today()-datetime.timedelta(days=7), datetime.time(2,0,1))),]" name="last7" string="Kreirane pre 7 dana"/>
+                    <!--        <filter invisible="1" string="Late Activities" name="activities_overdue"
+                        domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today"
+                        domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                        domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/> -->
+                    <group expand="0" string="Group By">
+                        <!--   <filter string="Tip Dokumenta" name="tipdokumenta" domain="[]" context="{'group_by': 'document_type'}"/>
+                     -->
+                        <filter context="{'group_by': 'partner_id'}" domain="[]" name="partner" string="Partner"/>
+                        <!--        <filter name="SEFstatus" string="SEF Status" domain="[]" context="{'group_by': 'sef_status'}"/>  -->
+                        <filter context="{'group_by': 'document_date'}" domain="[]" name="datumdokumenta" string="Document Date"/>
+                    </group>
+                </search></field>
+        </record>
+        <record id="action_ii_edk_document_package" model="ir.actions.act_window">
+            <field name="name">Documents</field>
+            <field name="res_model">ii.edk.document.package</field>
+        </record>
+        <menuitem action="action_ii_edk_document_package" id="menu_ii_edk_document_package" parent="menu_ii_edk_root" sequence="1"/>
+        <!--
+        <record id="action_ii_edk_document_project" model="ir.actions.act_window">
+            <field name="name">Projektna Dokumenta</field>
+            <field name="res_model">ii.edk.document.package</field>
+            <field name = "domain" >[('document_type','=','project')]</field>
+            <field name="view_id" ref="ii_edk_document_package_project_tree"/>
+        </record>
+
+        <menuitem
+                id="menu_ii_edk_document_project"
+                action="action_ii_edk_document_project"
+                parent="menu_ii_edk_root"
+
+                sequence="2"
+        />   -->
+        <!--    <record id="action_ii_edk_document_finance" model="ir.actions.act_window">
+            <field name="name">Finansijska Dokumenta</field>
+            <field name="res_model">ii.edk.document.package</field>
+            <field name = "domain" >[('document_type','!=','project')]</field>
+            <field name="view_id" ref="ii_edk_document_package_project_finansije_tree"/>
+        </record>
+        <menuitem
+                id="menu_ii_edk_document_finance"
+                action="action_ii_edk_document_finance"
+                parent="menu_ii_edk_root"
+                sequence="2"
+        />   -->
+        <!--     <record id="action_ii_edk_sef" model="ir.actions.act_window">
+            <field name="name">SEF</field>
+            <field name="res_model">ii.edk.document.package</field>
+
+        </record>   -->
+        <!-- Rad sa sef servisima -->
+        <!--
+        <menuitem id="menu_sef" name="SEF servisi"
+                  parent="menu_ii_edk_root"
+                  groups="ii_edk_base.group_ii_edk_user"
+                  sequence="95"/>
+
+
+        <record model="ir.ui.view" id="sef_get_invoice_wizard">
+            <field name="name">SEF provera faktura</field>
+            <field name="model">ii.sef.getinvoice.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="SEF provera">
+                    <p class="oe_gray">
+                        Provera za period <br></br>
+                    </p>
+                    <group>
+                        <group>
+                            <field name="date_start" required="1"/>
+                        </group>
+                        <group>
+                            <field name="date_end" required="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="check_invoices" string="Proveri SEF" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </form></field>
+        </record>
+        <record id="action_sef_get_invoice" model="ir.actions.act_window">
+            <field name="name">SEF provera faktura</field>
+            <field name="res_model">ii.sef.getinvoice.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+	<menuitem action="action_sef_get_invoice" id="sef_get_invoice" name="Proveri SEF fakture" parent="menu_sef" sequence="5"/>
+
+
+
+
+	<menuitem id="menu_ii_edk_sef" name="Spisak dokumenata"
+                  action="action_ii_edk_sef"
+                  parent="menu_sef"
+                  groups="ii_edk_base.group_ii_edk_user"
+                  sequence="95"/>   -->
+    </data>
+</odoo>

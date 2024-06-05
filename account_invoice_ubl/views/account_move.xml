@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2016-2017 Akretion (Alexis de Lattre <alexis.delattre@akretion.com>)
+  License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+ <record id="view_move_form" model="ir.ui.view">
+  <field name="model">account.move</field>
+  <field name="inherit_id" ref="account.view_move_form"/>
+  <field name="arch" type="xml">
+   <button name="button_draft" position="before">
+    <button invisible="move_type not in ['out_invoice', 'out_refund'] or state != 'posted'" name="attach_ubl_xml_file_button" string="Generisi UBL XML File" type="object"/>
+   </button>
+   <!-- ovde ubaciti polja za status slanja i zahtev da se automatski faktura registruje u CRF    -->
+   <xpath expr="//field[@name='partner_shipping_id']" position="before">
+    <field invisible="1" name="jbkjs"/>
+    <field invisible="1" name="tax_closing_show_multi_closing_warning"/>
+    <field invisible="jbkjs == False or is_jn == False" name="auto_crf"/>
+    <field name="x_sent_to_sef"/>
+    <field invisible="jbkjs == False or is_jn == False" name="x_broj_ugovora_jn"/>
+   </xpath>
+   <!-- ovde ubaciti polja za pdv detalje na liniji    -->
+   <xpath expr="//field[@name='tax_ids']" position="after">
+    <field name="unece_categ_id"/>
+    <field domain="[('unece_categ_id','=',unece_categ_id)]" name="x_pdv_sifra_osnova"/>
+   </xpath></field>
+ </record>
+</odoo>

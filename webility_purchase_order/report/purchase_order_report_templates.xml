@@ -1,0 +1,145 @@
+<odoo>
+    <!--<template id="report_purchasequotation_document_inherited" inherit_id="purchase.report_purchasequotation_document">
+        <xpath expr="//div[@class='page']/div[1]" position="before">
+            <div class="row">
+                <div class="col-6">
+                    <strong>Vendor:</strong>
+                    <span t-field="doc.partner_id"/>
+                </div>
+                <div class="col-6">
+                    <strong>Destination Address:</strong>
+                    <span t-field="doc.dest_address_id"/>
+                </div>
+            </div>
+        </xpath>
+    </template>
+-->
+    <template id="external_layout_standard_custom" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[hasclass('pt-5')]" position="attributes">
+            <attribute name="class">pt-0</attribute>
+        </xpath>
+        <xpath expr="//div[1]//div[3]" position="attributes">
+            <attribute name="class">pt-0</attribute>
+        </xpath>
+        <xpath expr="//div[@name='company_address']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+    </template>
+    <template id="address_layout_custom2" inherit_id="web.address_layout">
+        <xpath expr="//div[@t-if='address']" position="replace">
+            <div t-if="address" class="address row "
+                 title="This block is not always present depending on the printed document.">
+                <div name="address" class="col-6">
+                    <t t-esc="address or None">
+                        <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                            <strong>Address block</strong>
+                            <div>Usually contains the address of the document's recipient.</div>
+                        </div>
+                    </t>
+                </div>
+                <t t-if="information_block">
+                    <div name="information_block" class="col-5 offset-1">
+                        <t t-out="information_block or None">
+                            <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                                <strong>Information block</strong>
+                                <div>Usually contains a source address or a complementary address.</div>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="report_purchaseorder_document_inherittt" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//span[@t-field='line.date_planned']" position="replace">
+            <span t-field="line.date_planned" t-options='{"widget": "date"}'/>
+        </xpath>
+        <xpath expr="//th[@name='th_description']" position="after">
+            <th name="th_product_code" style="text-align: center;">
+                <strong>Part number #</strong>
+            </th>
+        </xpath>
+        <xpath expr="//td[@id='product']" position="after">
+            <td id="product_code" style="text-align: center;">
+                <span t-field="line.product_code"/>
+            </td>
+        </xpath>
+        <xpath expr="//div[@id='informations']/div[4]" position="replace">
+        </xpath>
+        <xpath expr="//th[@name='th_taxes']" position="replace">
+        </xpath>
+        <xpath expr="//td[@name='td_taxes']" position="replace">
+        </xpath>
+        <xpath expr="//th[@name='th_price_unit']" position="after">
+            <th name="th_taxes">
+                <strong>Taxes</strong>
+            </th>
+        </xpath>
+        <xpath expr="//td[5]" position="after">
+            <t t-set="taxes" t-value="', '.join([(tax.invoice_label or tax.name) for tax in line.taxes_id])"/>
+            <td name="td_taxes" t-attf-class="text-center {{ 'text-nowrap' if len(taxes) &lt; 10 else '' }}">
+                <span t-out="taxes">Tax 15%</span>
+            </td>
+        </xpath>
+        <xpath expr="//td[@id='product']" position="replace">
+            <td id="product">
+                <span t-field="line.product_id.name"/>
+            </td>
+        </xpath>
+
+        <xpath expr="//th[@name='th_quantity']" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+        <xpath expr="//td[@class='text-end'][span[@t-field='line.product_qty']]" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_price_unit']" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+        <xpath expr="//td[@class='text-end'][span[@t-field='line.price_unit']]" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_subtotal']" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+        <xpath expr="//td[@class='text-end'][span[@t-field='line.price_subtotal']]" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_description']" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+        <xpath expr="//td[span[@t-field='line.product_id.name']]" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+        <xpath expr="//div[@id='informations']//div[3]" position="replace">
+            <div class="col-3 bm-2">
+                <strong>Order Date:</strong>
+                <p>
+                    <t t-if="o.date_approve" t-esc="o.date_approve.strftime('%Y-%m-%d')"/>
+
+                </p>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="report_saleorder_document_inherit_webility" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-if='doc.partner_shipping_id == doc.partner_invoice_id
+                             and doc.partner_invoice_id != doc.partner_id
+                             or doc.partner_shipping_id != doc.partner_invoice_id']" position="replace">
+
+
+            <t t-set="information_block">
+
+                <strong>
+                    Shipping Address:
+                </strong>
+                <div t-field="doc.partner_shipping_id"
+                     t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+
+            </t>
+        </xpath>
+
+    </template>
+
+</odoo>
