@@ -116,10 +116,15 @@
             <div class="col-3 bm-2">
                 <strong>Order Date:</strong>
                 <p>
-                    <t t-if="o.date_approve" t-esc="o.date_approve.strftime('%Y-%m-%d')"/>
+                    <t t-if="o.date_approve" t-esc="o.date_approve.strftime('%d/%m/%Y')"/>
 
                 </p>
             </div>
+        </xpath>
+        <xpath expr="//p[@t-field='o.notes']" position="before">
+            <p t-if="o.payment_term_id">
+               <strong>Payment Terms: </strong> <span t-field="o.payment_term_id.name"></span>
+            </p>
         </xpath>
     </template>
 
