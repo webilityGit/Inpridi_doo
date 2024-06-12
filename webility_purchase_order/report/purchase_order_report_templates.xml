@@ -146,5 +146,10 @@
         </xpath>
 
     </template>
+    <template id="report_invoice_document_inharit_webility" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@name='delivery_date']" position="replace">
+        </xpath>
+
+    </template>
 
 </odoo>
