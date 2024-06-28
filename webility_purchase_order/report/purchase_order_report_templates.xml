@@ -151,7 +151,7 @@
         </xpath>
 
 
-        <xpath expr="//table[@name='invoice_line_table']//tbody//tr[last()]" position="replace"/>
+        <!--<xpath expr="//table[@name='invoice_line_table']/tbody//tr[last()]" position="replace"/>-->
            <!-- <attribute name="style">display:none;</attribute>
         </xpath>-->
 
