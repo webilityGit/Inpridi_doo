@@ -152,4 +152,9 @@
 
     </template>
 
+    <template id="report_invoice_document_inherit_webility" inherit_id="account.report_invoice_document">
+
+        <xpath expr="//tr[hasclass('is-subtotal text-end')]" position="replace"></xpath>
+    </template>
+
 </odoo>
