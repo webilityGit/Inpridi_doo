@@ -73,14 +73,13 @@ class AccountJournalImportInherit(models.Model):
             account_user = stavka.get('NalogKorisnik')
             memo = stavka.get('Opis')
             trans_id = stavka.get('Referenca')
-            amount = float(stavka.get('Duguje', '0')) - float(stavka.get('Potrazuje', '0'))
-
+            amount = float(stavka.get('Duguje', '0'))
             partner_bank = self.env['res.partner.bank'].search([('partner_id.name', '=', account_user)], limit=1)
             vals_line = {
                 'date': date,
                 'payment_ref': account_user + (memo and ': ' + memo or ''),
                 'ref': trans_id,
-                'amount': amount,
+                'amount': -amount,
                 'unique_import_id': trans_id,
                 'account_number': partner_bank.acc_number if partner_bank else '',
                 'partner_id': partner_bank.partner_id.id if partner_bank else None,
@@ -90,9 +89,9 @@ class AccountJournalImportInherit(models.Model):
             transactions = [vals_line]
             total_amt = amount
 
-            # Assuming balance_start and balance_end_real are to be calculated or extracted from other fields
-            balance_start = 0.0  # Placeholder, replace with actual logic if available
-            balance_end_real = total_amt  # Placeholder, replace with actual logic if available
+
+            balance_start = 0.0
+            balance_end_real = total_amt
 
             vals_bank_statement.append({
                 'transactions': transactions,
