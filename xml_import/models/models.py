@@ -99,15 +99,15 @@ class AccountJournalImportInherit(models.Model):
                 'balance_end_real': balance_end_real,
             })
 
-            account_lst.add(account_number)
-            currency_lst.add(currency)
-
-        if account_lst and len(account_lst) == 1:
-            account_lst = account_lst.pop()
-            currency_lst = currency_lst.pop()
-        else:
-            account_lst = None
-            currency_lst = None
+        #     account_lst.add(account_number)
+        #     currency_lst.add(currency)
+        #
+        # if account_lst and len(account_lst) == 1:
+        #     account_lst = account_lst.pop()
+        #     currency_lst = currency_lst.pop()
+        # else:
+        account_lst = None
+        currency_lst = None
 
         return currency_lst, account_lst, vals_bank_statement
 
