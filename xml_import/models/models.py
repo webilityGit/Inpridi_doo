@@ -48,9 +48,9 @@ class AccountJournalImportInherit(models.Model):
             return False
 
     def _parse_bank_statement_file(self, attachment):
-
         if not self._check_xml(attachment):
             return super()._parse_bank_statement_file(attachment)
+
         # Ensure we have the correct file content
         file_content = base64.b64decode(attachment.datas)
 
@@ -65,15 +65,20 @@ class AccountJournalImportInherit(models.Model):
         # Parsing the date
         date = datetime.strptime(date_str, '%d.%m.%Y').strftime('%Y-%m-%d')
 
+        # Initialize balance variables
+        balance_start = 0.0
+        total_amt = 0.0
+        transactions = []
+
         for stavka in root.findall('.//Stavke'):
             # Extracting the necessary fields from the XML
             account_number = stavka.get('BrojRacunaPrimaocaPosiljaoca')
             currency = "RSD"  # Assuming the currency is RSD as per the provided XML snippet
-
             account_user = stavka.get('NalogKorisnik')
             memo = stavka.get('Opis')
             trans_id = stavka.get('Referenca')
             amount = float(stavka.get('Duguje', '0'))
+
             partner_bank = self.env['res.partner.bank'].search([('partner_id.name', '=', account_user)], limit=1)
             vals_line = {
                 'date': date,
@@ -83,31 +88,18 @@ class AccountJournalImportInherit(models.Model):
                 'unique_import_id': trans_id,
                 'account_number': partner_bank.acc_number if partner_bank else '',
                 'partner_id': partner_bank.partner_id.id if partner_bank else None,
-                'sequence': len(vals_bank_statement) + 1,
+                'sequence': len(transactions) + 1,
             }
 
-            transactions = [vals_line]
-            total_amt = amount
+            # Add transaction to the list
+            transactions.append(vals_line)
+            total_amt += -amount  # Update the total amount with the current transaction
 
-
-            balance_start = 0.0
-            balance_end_real = total_amt
-
-            vals_bank_statement.append({
-                'transactions': transactions,
-                'balance_start': balance_start,
-                'balance_end_real': balance_end_real,
-            })
-
-        #     account_lst.add(account_number)
-        #     currency_lst.add(currency)
-        #
-        # if account_lst and len(account_lst) == 1:
-        #     account_lst = account_lst.pop()
-        #     currency_lst = currency_lst.pop()
-        # else:
-        account_lst = None
-        currency_lst = None
+        # Append the aggregated transactions and balances once
+        vals_bank_statement.append({
+            'transactions': transactions,
+            'balance_start': balance_start,
+            'balance_end_real': balance_start + total_amt,
+        })
 
         return currency_lst, account_lst, vals_bank_statement
-
