@@ -98,8 +98,8 @@ class AccountJournalImportInherit(models.Model):
         # Append the aggregated transactions and balances once
         vals_bank_statement.append({
             'transactions': transactions,
-            'balance_start': balance_start,
-            'balance_end_real': balance_start + total_amt,
+            # 'balance_start': balance_start,
+            # 'balance_end_real': balance_start + total_amt,
         })
 
         return currency_lst, account_lst, vals_bank_statement
