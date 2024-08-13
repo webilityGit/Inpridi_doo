@@ -54,7 +54,8 @@ class AccountJournalImportInherit(models.Model):
             currency = "RSD"
             account_user = stavka.get('NalogKorisnik')
             memo = stavka.get('Opis')
-            trans_id = stavka.get('Referenca')
+            trans_id = stavka.get('Referenca') if stavka.get('Referenca') else None
+
 
             duguje = float(stavka.get('Duguje', '0'))
             potrazuje = float(stavka.get('Potrazuje', '0'))
