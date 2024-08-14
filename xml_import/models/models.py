@@ -54,7 +54,7 @@ class AccountJournalImportInherit(models.Model):
             currency = "RSD"
             account_user = stavka.get('NalogKorisnik')
             memo = stavka.get('Opis')
-            trans_id = stavka.get('Referenca') if stavka.get('Referenca') else None
+            # trans_id = stavka.get('Referenca') if stavka.get('Referenca') else None
 
 
             duguje = float(stavka.get('Duguje', '0'))
@@ -69,9 +69,9 @@ class AccountJournalImportInherit(models.Model):
             vals_line = {
                 'date': date,
                 'payment_ref': account_user + (memo and ': ' + memo or ''),
-                'ref': trans_id,
+                # 'ref': trans_id,
                 'amount': amount,
-                'unique_import_id': trans_id,
+                # 'unique_import_id': trans_id,
                 'account_number': partner_bank.acc_number if partner_bank else '',
                 'partner_id': partner_bank.partner_id.id if partner_bank else None,
                 'sequence': len(transactions) + 1,
