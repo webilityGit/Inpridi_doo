@@ -84,7 +84,9 @@
         </xpath>
         <xpath expr="//td[@id='product']" position="replace">
             <td id="product">
-                <span t-field="line.product_id.name"/>
+                <span t-field="line.product_id"/>
+                <br/>
+                <span t-field="line.product_id.description_purchase"/>
             </td>
         </xpath>
 
@@ -107,10 +109,10 @@
             <attribute name="class">text-center</attribute>
         </xpath>
         <xpath expr="//th[@name='th_description']" position="attributes">
-            <attribute name="class">text-center</attribute>
+            <attribute name="class">text-start</attribute>
         </xpath>
         <xpath expr="//td[span[@t-field='line.product_id.name']]" position="attributes">
-            <attribute name="class">text-center</attribute>
+            <attribute name="class">text-start</attribute>
         </xpath>
         <xpath expr="//div[@id='informations']//div[3]" position="replace">
             <div class="col-3 bm-2">
