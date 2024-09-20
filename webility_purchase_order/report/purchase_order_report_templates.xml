@@ -111,7 +111,7 @@
         <xpath expr="//th[@name='th_description']" position="attributes">
             <attribute name="class">text-start</attribute>
         </xpath>
-        <xpath expr="//td[span[@t-field='line.product_id.name']]" position="attributes">
+        <xpath expr="//td[span[@t-field='line.product_id.description_purchase']]" position="attributes">
             <attribute name="class">text-start</attribute>
         </xpath>
         <xpath expr="//div[@id='informations']//div[3]" position="replace">
