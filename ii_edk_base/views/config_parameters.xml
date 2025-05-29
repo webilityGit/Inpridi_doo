@@ -38,14 +38,14 @@
             <field name="name">ii_edk_config_tree</field>
             <field name="model">ii.edk.config</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="active" invisible="True"/>
                     <field name="name"/>
                     <field name="workbook_main_user_id"/>
                     <field name="visibility"/>
                     <field name="approval_participant_id"/>
                     <field name="company_id" groups="base.group_multi_company"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -214,12 +214,12 @@
             <field name="name">document.category.group.tree</field>
             <field name="model">ii.edk.lista.gkag</field>
             <field name="arch" type="xml">
-                <tree string="Document Category group">
+                <list string="Document Category group">
                     <field name="code_prefix_start"/>
                     <field name="code_prefix_end"/>
                     <field name="name"/>
                     <field name="company_id" groups="base.group_multi_company"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -273,13 +273,13 @@
             <field name="name">document.type.tree</field>
             <field name="model">ii.edk.document.type</field>
             <field name="arch" type="xml">
-                <tree string="Document Type">
+                <list string="Document Type">
                     <field name="code"/>
                     <field name="name"/>
                     <field name="vrsta"/>
                     <field name="mandatory_signature"/>
                     <field name="mandatory_approval"/>
-                </tree>
+                </list>
             </field>
         </record>
 
