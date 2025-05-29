@@ -80,12 +80,12 @@
                         <!--             <notebook colspan="4" attrs="{'invisible':[('source', '!=', 'sef')]}"> -->
                         <notebook colspan="4">
                             <page name="documents" string="Attachements">
-                                <field mod="tree" name="document_ids">
-                                    <tree>
+                                <field mod="list" name="document_ids">
+                                    <list>
                                         <field name="name"/>
                                         <field filename="file_name" name="file"/>
                                         <field invisible="True" name="file_name"/>
-                                    </tree>
+                                    </list>
                                     <form>
                                         <group>
                                             <field name="name"/>
@@ -107,15 +107,15 @@
                              </group>
                         </page>    -->
                             <page name="aprovers" string="Approval process">
-                                <field mod="tree" name="participant_ids">
-                                    <tree editable="bottom">
+                                <field mod="list" name="participant_ids">
+                                    <list editable="bottom">
                                         <field name="step"/>
                                         <field name="user_id"/>
                                         <field name="role"/>
                                         <field name="state"/>
                                         <field invisible="True" name="method"/>
                                         <field name="notes"/>
-                                    </tree>
+                                    </list>
                                     <form>
                                         <group>
                                             <field name="user_id"/>
@@ -189,7 +189,7 @@
             <field name="model">ii.edk.document.package</field>
             <field name="arch" type="xml">
                 <!--      <tree decoration-info="sef_status == 'New'">  -->
-                <tree>
+                <list>
                     <field name="name"/>
                     <!--        <field name="project_document_number"/>
                     <field name="document_type"/>  -->
@@ -204,7 +204,7 @@
                     <field groups="base.group_multi_company" name="company_id"/>
                     <!--        <field name="sef_status"/>  -->
                     <field name="state"/>
-                </tree></field>
+                </list></field>
         </record>
         <!--     <record id="ii_edk_document_package_project_tree" model="ir.ui.view">
             <field name="name">ii_edk_document_package_project_tree</field>
