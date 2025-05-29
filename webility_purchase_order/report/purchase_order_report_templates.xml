@@ -15,10 +15,10 @@
     </template>
 -->
     <template id="external_layout_standard_custom" inherit_id="web.external_layout_standard">
-     <--   <xpath expr="//div[@class='pt-5']" position="attributes">
+     <!-   <xpath expr="//div[@class='pt-5']" position="attributes">
             <attribute name="class">pt-0</attribute>
         </xpath> -->
-     <--   <xpath expr="//div[1]//div[3]" position="attributes">
+     <!--   <xpath expr="//div[1]//div[3]" position="attributes">
             <attribute name="class">pt-0</attribute>
         </xpath>  -->
         <xpath expr="//div[@name='company_address']" position="attributes">
