@@ -19,12 +19,12 @@
                             </group>
                         </group>
                         <group name="approvers" string="Approvers">
-                            <field name="participant_ids" mod = "tree">
-                                <tree editable="bottom">
+                            <field name="participant_ids" mod = "list">
+                                <list editable="bottom">
                                     <field name="step"/>
                                     <field name="user_id"/>
                                     <field name="role"/>
-                                </tree>
+                                </list>
                             </field>
                         </group>
                     </sheet>
@@ -36,12 +36,12 @@
             <field name="name">ii.edk.participants_tree</field>
             <field name="model">ii.edk.participants</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="active" invisible="True"/>
                     <field name="name"/>
                     <field name="user_id"/>
                     <field name="company_id" groups="base.group_multi_company"/>
-                </tree>
+                </list>
             </field>
         </record>
 
