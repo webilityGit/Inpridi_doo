@@ -29,12 +29,12 @@
  <record id="osnov_pdv_izuzece_tree" model="ir.ui.view">
   <field name="model">osnov.pdv.izuzece</field>
   <field name="arch" type="xml">
-   <tree>
+   <list>
     <field invisible="not context.get('osnov_pdv_izuzece_main_view_view')" name="unece_categ_id"/>
     <field name="code"/>
     <field name="name"/>
     <field name="description"/>
-   </tree></field>
+   </list></field>
  </record>
  <record id="osnov_pdv_izuzece_search" model="ir.ui.view">
   <field name="model">osnov.pdv.izuzece</field>
@@ -52,7 +52,7 @@
  <record id="osnov_pdv_izuzece_action" model="ir.actions.act_window">
   <field name="name">Spisak PDV izuzeca</field>
   <field name="res_model">osnov.pdv.izuzece</field>
-  <field name="view_mode">tree,form</field>
+  <field name="view_mode">list,form</field>
   <field name="context">{'osnov_pdv_izuzece_main_view': True}</field>
  </record>
  <menuitem action="osnov_pdv_izuzece_action" id="osnov_pdv_izuzece_menu" parent="base.menu_ir_property" sequence="155"/>
