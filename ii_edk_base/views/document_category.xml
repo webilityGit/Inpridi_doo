@@ -78,7 +78,7 @@
             <field name="name">ii.edk.lista.kag.list</field>
             <field name="model">ii.edk.lista.kag</field>
             <field name="arch" type="xml">
-                <tree editable="top" create="1" delete="1" multi_edit="1" string="Document Category List">
+                <list editable="top" create="1" delete="1" multi_edit="1" string="Document Category List">
                     <field name="company_id" invisible="1"/>
                     <field name="code"/>
                     <field name="name"/>
@@ -90,7 +90,7 @@
                     <field name="rok_cuvanja_godina"/>
                     <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
                     <button name="action_read_document_category" type="object" string="Setup" class="float-end btn-secondary"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -148,7 +148,7 @@
         <record id="action_document_category_form" model="ir.actions.act_window">
             <field name="name">Document Categories</field>
             <field name="res_model">ii.edk.lista.kag</field>
-            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_mode">list,kanban,form</field>
             <field name="search_view_id" ref="view_document_category_search"/>
             <field name="view_id" ref="view_document_category_list"/>
             <field name="help" type="html">
