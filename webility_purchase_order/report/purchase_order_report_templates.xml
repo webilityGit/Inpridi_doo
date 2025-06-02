@@ -37,16 +37,16 @@
                  title="This block is not always present depending on the printed document.">
                 <div name="address" class="col-6" style="padding: 0;">
                     <t t-esc="address or None">
-                        <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                        <div class="bg-light border-1 rounded d-flex flex-column align-items-center justify-content-center p-2 opacity-75 text-muted text-center">
                             <strong>Address block</strong>
                             <div>Usually contains the address of the document's recipient.</div>
                         </div>
                     </t>
                 </div>
                 <t t-if="information_block">
-                    <div name="information_block" class="col-5 offset-1" style="padding: 0;">
+                    <div name="information_block" class="col-5" style="padding: 0;">
                         <t t-out="information_block or None">
-                            <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                            <div class="bg-light border-1 rounded d-flex flex-column align-items-center justify-content-center p-2 opacity-75 text-muted text-center">
                                 <strong>Information block</strong>
                                 <div>Usually contains a source address or a complementary address.</div>
                             </div>
