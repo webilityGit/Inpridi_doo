@@ -21,6 +21,10 @@
         <xpath expr="//div[1]//div[3]" position="attributes">
             <attribute name="class">pt-0</attribute>
         </xpath> -->
+        <xpath expr="//div[@t-if='address' and contains(@class, 'row')]" position="attributes">
+            <attribute name="style">padding: 0; margin: 0;</attribute>
+        </xpath>
+
         <xpath expr="//div[@name='company_address']" position="attributes">
             <attribute name="style">display:none;</attribute>
         </xpath>
