@@ -21,6 +21,12 @@
         <xpath expr="//div[1]//div[3]" position="attributes">
             <attribute name="class">pt-0</attribute>
         </xpath> -->
+            <xpath expr="//div[contains(@class, 'mb-2')]" position="attributes">
+                <attribute name="class">d-flex justify-content-between align-items-center mb-0</attribute>
+            </xpath>
+            <xpath expr="//div[@class='row']/div[@name='company_address']" position="attributes">
+                <attribute name="class">col-6 pt-0</attribute>
+            </xpath>
         <xpath expr="//div[@name='company_address']" position="attributes">
             <attribute name="style">display:none;</attribute>
         </xpath>
