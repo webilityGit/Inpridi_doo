@@ -74,8 +74,8 @@
         </xpath>
         <xpath expr="//th[@name='th_taxes']" position="replace">
         </xpath>
-        <xpath expr="//td[@name='td_taxes']" position="replace">
-        </xpath>  
+      <!--  <xpath expr="//td[@name='td_taxes']" position="replace">
+        </xpath>  -->
         <xpath expr="//th[@name='th_price_unit']" position="after">
             <th name="th_taxes">
                 <strong>Taxes</strong>
