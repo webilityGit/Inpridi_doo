@@ -21,7 +21,12 @@
         <xpath expr="//div[1]//div[3]" position="attributes">
             <attribute name="class">pt-0</attribute>
         </xpath> -->
-    
+        <xpath expr="//div[contains(@class, 'o_report_layout_standard')]" position="attributes">
+            <attribute name="class" add="pt-0"/>
+        </xpath>
+        <xpath expr="//div[contains(@class, 'o_company_header')]" position="attributes">
+            <attribute name="class" add="pt-0"/>
+        </xpath>
 
 
         <xpath expr="//div[@name='company_address']" position="attributes">    <!-- ovo je proslo, sa greskom za ValueError: Element '<xpath expr="//span[@t-field=&#39;line.date_planned&#39;]">' cannot be located in parent view
