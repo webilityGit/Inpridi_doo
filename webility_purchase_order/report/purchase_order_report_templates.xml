@@ -15,8 +15,8 @@
     </template>
 -->
     <template id="external_layout_standard_custom" inherit_id="web.external_layout_standard">
- <!--       <xpath expr="//div[hasclass('pt-5')]" position="attributes">
-            <attribute name="class">pt-0</attribute>
+ <!--       <xpath expr="//div[hasclass('p-4')]" position="attributes">
+            <attribute name="class">p-0</attribute>
         </xpath>
         <xpath expr="//div[1]//div[3]" position="attributes">
             <attribute name="class">pt-0</attribute>
@@ -59,6 +59,9 @@
        <!-- <xpath expr="//span[@t-field='line.date_planned']" position="replace">
             <span t-field="line.date_planned" t-options='{"widget": "date"}'/>
         </xpath>  -->
+        <xpath expr="//span[@t-if='o.date_planned']" position="replace">
+            <span t-field="o.date_planned" t-options='{"widget": "date"}'/>
+        </xpath>
         <xpath expr="//th[@name='th_description']" position="after">
             <th name="th_product_code" style="text-align: center;">
                 <strong>Part number #</strong>
@@ -73,8 +76,8 @@
         </xpath>
         <xpath expr="//th[@name='th_taxes']" position="replace">
         </xpath>
-     <!--   <xpath expr="//td[@name='td_taxes']" position="replace">
-        </xpath>  -->
+        <xpath expr="//td[@name='td_taxes']" position="replace">
+        </xpath>  
         <xpath expr="//th[@name='th_price_unit']" position="after">
             <th name="th_taxes">
                 <strong>Taxes</strong>
@@ -161,8 +164,8 @@
 
     <template id="report_invoice_document_inherit_webility" inherit_id="account.report_invoice_document">
 
-<!--        <xpath expr="//table[@name='invoice_line_table']//tbody//tr[@name='td_section_subtotal']"-->
-<!--               position="replace"></xpath>-->
+        <xpath expr="//table[@name='invoice_line_table']//tbody//tr[@name='td_section_subtotal']"
+               position="replace"></xpath>
 
         <xpath expr="//div[hasclass('row')][1]" position="replace">
             <t t-if="print_with_payments">
