@@ -59,9 +59,7 @@
        <!-- <xpath expr="//span[@t-field='line.date_planned']" position="replace">
             <span t-field="line.date_planned" t-options='{"widget": "date"}'/>
         </xpath>  -->
-        <xpath expr="//span[@t-if='o.date_planned']" position="replace">
-            <span t-field="o.date_planned" t-options='{"widget": "date"}'/>
-        </xpath>
+        
         <xpath expr="//th[@name='th_description']" position="after">
             <th name="th_product_code" style="text-align: center;">
                 <strong>Part number #</strong>
@@ -130,12 +128,12 @@
                 </p>
             </div>
         </xpath>
-        <xpath expr="//p[@t-field='o.notes']" position="before">
+   <!--     <xpath expr="//p[@t-field='o.notes']" position="before">
             <p t-if="o.payment_term_id">
                 <strong>Payment Terms:</strong>
                 <span t-field="o.payment_term_id.name"></span>
             </p>
-        </xpath>
+        </xpath>  -->
     </template>
 
     <template id="report_saleorder_document_inherit_webility" inherit_id="sale.report_saleorder_document">
