@@ -162,8 +162,8 @@
 
     <template id="report_invoice_document_inherit_webility" inherit_id="account.report_invoice_document">
 
-        <xpath expr="//table[@name='invoice_line_table']//tbody//tr[@name='td_section_subtotal']"
-               position="replace"></xpath>
+     <!--   <xpath expr="//table[@name='invoice_line_table']//tbody//tr[@name='td_section_subtotal']"
+               position="replace"></xpath>  -->
 
         <xpath expr="//div[hasclass('row')][1]" position="replace">
             <t t-if="print_with_payments">
