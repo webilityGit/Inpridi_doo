@@ -38,14 +38,14 @@
             <field name="name">ii_edk_book_tree</field>
             <field name="model">ii.edk.book</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="active" invisible="True"/>
                     <field name="name"/>
 
                     <field name="book_year"/>
                     <field name="book_seq"/>
                     <field name="company_id" groups="base.group_multi_company"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -98,14 +98,14 @@
             <field name="name">ii_edk_lista_predmeta_tree</field>
             <field name="model">ii.edk.lista.predmeta</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="active" invisible="True"/>
                  <!--   <field name="predmet_broj"/> -->
                     <field name="name" string ="Case No"/>
                     <field name="case_date"/>
                     <field name="case_arhive_date"/>
                     <field name="case_state"/>
-                </tree>
+                </list>
             </field>
         </record>
 

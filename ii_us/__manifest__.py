@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Users',
-    'version': '17.0.1.0.0',
+    'version': '1.0',
     'summary': """Manages Users""",
     'description': """This module is used to ....""",
     'category': "Generic Modules/Human Resources",

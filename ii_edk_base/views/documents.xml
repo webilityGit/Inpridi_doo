@@ -25,14 +25,14 @@
             <field name="name">ii_edk_approval_document_tree</field>
             <field name="model">ii.edk.document</field>
             <field name="arch" type="xml">
-                <tree >
+                <list>
                     <field name="name"/>
                     <field name="id"/>
                     <field name="create_date"/>
                     <field name="document_package_id"/>
 
 
-                </tree>
+                </list>
             </field>
         </record>
 
