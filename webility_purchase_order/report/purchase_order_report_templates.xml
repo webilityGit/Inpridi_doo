@@ -128,12 +128,12 @@
                 </p>
             </div>
         </xpath>
-   <!--     <xpath expr="//p[@t-field='o.notes']" position="before">
+        <xpath expr="//p[@t-field='o.notes']" position="before">
             <p t-if="o.payment_term_id">
                 <strong>Payment Terms:</strong>
                 <span t-field="o.payment_term_id.name"></span>
             </p>
-        </xpath>  -->
+        </xpath>  
     </template>
 
     <template id="report_saleorder_document_inherit_webility" inherit_id="sale.report_saleorder_document">
