@@ -29,7 +29,7 @@ class srStockQuant(models.Model):
     def _apply_inventory(self):
         move_vals = []
         date_list = []
-        if not self.user_has_groups('stock.group_stock_manager'):
+        if not self.env.user.has_group('stock.group_stock_manager'):
             raise UserError(_('Only a stock manager can validate an inventory adjustment.'))
         for quant in self:
             # Create and validate a move so that the quant matches its `inventory_quantity`.

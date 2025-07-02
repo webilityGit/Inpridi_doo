@@ -15,46 +15,51 @@
     </template>
 -->
     <template id="external_layout_standard_custom" inherit_id="web.external_layout_standard">
-        <xpath expr="//div[hasclass('pt-5')]" position="attributes">
-            <attribute name="class">pt-0</attribute>
+ <!--       <xpath expr="//div[hasclass('p-4')]" position="attributes">
+            <attribute name="class">p-0</attribute>
         </xpath>
         <xpath expr="//div[1]//div[3]" position="attributes">
             <attribute name="class">pt-0</attribute>
-        </xpath>
-        <xpath expr="//div[@name='company_address']" position="attributes">
-            <attribute name="style">display:none;</attribute>
-        </xpath>
+        </xpath> -->
+       
+
+        <xpath expr="//div[@name='company_address']" position="attributes">    <!-- ovo je proslo, sa greskom za ValueError: Element '<xpath expr="//span[@t-field=&#39;line.date_planned&#39;]">' cannot be located in parent view
+                                                                                                            Template: purchase.report_purchaseorder   Path: /t/t/t/t  Node: <t t-call="purchase.report_purchaseorder_document" t-inner-content="True" t-options-lang="o.partner_id.lang"/> -->
+                <attribute name="style">display:none;</attribute>
+        </xpath>  
     </template>
     <template id="address_layout_custom2" inherit_id="web.address_layout">
-        <xpath expr="//div[@t-if='address']" position="replace">
-            <div t-if="address" class="address row "
-                 title="This block is not always present depending on the printed document.">
-                <div name="address" class="col-6">
-                    <t t-esc="address or None">
-                        <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
-                            <strong>Address block</strong>
-                            <div>Usually contains the address of the document's recipient.</div>
-                        </div>
-                    </t>
-                </div>
-                <t t-if="information_block">
-                    <div name="information_block" class="col-5 offset-1">
-                        <t t-out="information_block or None">
-                            <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
-                                <strong>Information block</strong>
-                                <div>Usually contains a source address or a complementary address.</div>
-                            </div>
-                        </t>
+    <xpath expr="//div[@t-if='address']" position="replace">
+        <div t-if="address" class="address row "
+             title="This block is not always present depending on the printed document.">
+            <div name="address" class="col-6">
+                <t t-esc="address or None">
+                    <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                        <strong>Address block</strong>
+                        <div>Usually contains the address of the document's recipient.</div>
                     </div>
                 </t>
             </div>
-        </xpath>
-    </template>
+            <t t-if="information_block">
+                <div name="information_block" class="col-5 offset-1">
+                    <t t-out="information_block or None">
+                        <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                            <strong>Information block</strong>
+                            <div>Usually contains a source address or a complementary address.</div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </div>
+    </xpath>
+</template>
+
 
     <template id="report_purchaseorder_document_inherittt" inherit_id="purchase.report_purchaseorder_document">
-        <xpath expr="//span[@t-field='line.date_planned']" position="replace">
+       <!-- <xpath expr="//span[@t-field='line.date_planned']" position="replace">
             <span t-field="line.date_planned" t-options='{"widget": "date"}'/>
-        </xpath>
+        </xpath>  -->
+        
         <xpath expr="//th[@name='th_description']" position="after">
             <th name="th_product_code" style="text-align: center;">
                 <strong>Part number #</strong>
@@ -69,8 +74,8 @@
         </xpath>
         <xpath expr="//th[@name='th_taxes']" position="replace">
         </xpath>
-        <xpath expr="//td[@name='td_taxes']" position="replace">
-        </xpath>
+      <!--  <xpath expr="//td[@name='td_taxes']" position="replace">
+        </xpath>  -->
         <xpath expr="//th[@name='th_price_unit']" position="after">
             <th name="th_taxes">
                 <strong>Taxes</strong>
@@ -123,12 +128,12 @@
                 </p>
             </div>
         </xpath>
-        <xpath expr="//p[@t-field='o.notes']" position="before">
+   <!--     <xpath expr="//p[@t-field='o.notes']" position="before">
             <p t-if="o.payment_term_id">
                 <strong>Payment Terms:</strong>
                 <span t-field="o.payment_term_id.name"></span>
             </p>
-        </xpath>
+        </xpath>  -->
     </template>
 
     <template id="report_saleorder_document_inherit_webility" inherit_id="sale.report_saleorder_document">
@@ -157,8 +162,8 @@
 
     <template id="report_invoice_document_inherit_webility" inherit_id="account.report_invoice_document">
 
-<!--        <xpath expr="//table[@name='invoice_line_table']//tbody//tr[@name='td_section_subtotal']"-->
-<!--               position="replace"></xpath>-->
+     <!--   <xpath expr="//table[@name='invoice_line_table']//tbody//tr[@name='td_section_subtotal']"
+               position="replace"></xpath>  -->
 
         <xpath expr="//div[hasclass('row')][1]" position="replace">
             <t t-if="print_with_payments">
@@ -310,7 +315,6 @@
 
 
         </xpath>
-
 
     </template>
 

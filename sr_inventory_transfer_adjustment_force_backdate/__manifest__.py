@@ -10,7 +10,7 @@
 
 {
     'name': 'Stock Transfer And Inventory Adjustment Force Back Date',
-    'version': '17.0.0.1',
+    'version': '1.0',
     'category': 'Inventory',
     "license": "OPL-1",
     'summary': 'odoo apps for transfer stock in back date adjust inventory in back date back date operation in stock stock operation in back date',
