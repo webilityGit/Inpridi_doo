@@ -34,7 +34,7 @@
     <record id="unece_code_list_tree" model="ir.ui.view">
         <field name="model">unece.code.list</field>
         <field name="arch" type="xml">
-            <list>
+            <tree>
                 <field
                     name="type"
                     column_invisible="not context.get('unece_code_list_main_view')"
