@@ -42,7 +42,7 @@
                 <field name="code" />
                 <field name="name" />
                 <field name="description" optional="show" />
-            </list>
+            </tree>
         </field>
     </record>
     <record id="unece_code_list_search" model="ir.ui.view">
