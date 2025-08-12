@@ -37,7 +37,7 @@
             <tree>
                 <field
                     name="type"
-                    column_invisible="not context.get('unece_code_list_main_view')"
+                    invisible="not context.get('unece_code_list_main_view')"
                 />
                 <field name="code" />
                 <field name="name" />
