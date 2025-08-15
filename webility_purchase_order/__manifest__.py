@@ -9,7 +9,6 @@
     'data': [
         'views/purchase_order_views.xml',
         'report/purchase_order_report_templates.xml',
-        'report/custom_header.xml',
 
     ],
     'installable': True,
