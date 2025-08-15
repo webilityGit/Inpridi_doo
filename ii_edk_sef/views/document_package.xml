@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <data>
+  <record id="ii_edk_document_package_sef_form" model="ir.ui.view">
+   <field name="name">ii_edk_document_package_sef_form</field>
+   <field name="model">ii.edk.document.package</field>
+   <field name="inherit_id" ref="ii_edk_base.ii_edk_document_package_form"/>
+   <field name="arch" type="xml">
+    <xpath expr="//notebook/page[1]" position="before">
+     <page invisible="source != 'sef'" name="sef_info" string="Informacije sa SEF-a">
+      <group string="statusi iz SEFF-a">
+       <field name="sef_status"/>
+       <field name="crf_identifikator"/>
+       <field name="crf_status"/>
+       <field name="efaktura_id"/>
+       <field name="datum_dospeca"/>
+      </group>
+     </page>
+    </xpath></field>
+  </record>
+  <record id="ii_edk_document_package_sef_tree" model="ir.ui.view">
+   <field name="name">ii_edk_document_package_sef_tree</field>
+   <field name="model">ii.edk.document.package</field>
+   <field name="inherit_id" ref="ii_edk_base.ii_edk_document_package_tree"/>
+   <field name="arch" type="xml">
+    <xpath expr="//field[@name='state']" position="before">
+     <field name="sef_status"/>
+    </xpath></field>
+  </record>
+  <!--    <record id="ii_edk_document_package_filter" model="ir.ui.view">
+            <field name="name">ii.edk.document.package.select</field>
+            <field name="model">ii.edk.document.package</field>
+            <field name="priority" eval="15"/>
+            <field name="arch" type="xml">
+                <search string="Search documents for approval">
+                   <field name="name" string="Order" filter_domain="['|', '|', ('name', 'ilike', self), ('client_order_ref', 'ilike', self), ('partner_id', 'child_of', self)]"/>
+             -->
+  <!--       <field name="name" string="Delovodni broj"/>
+                    <field name="document_ref" string="Broj izvornog dokumenta"/>
+                    <field name="description" string="Opis"/>
+                    <field name="partner_id" operator="child_of"/>
+                    <field name="project_id" string="Projekat"/>
+                    <field name="initiator_user_id"/>
+                    <field name="approval_team_id" string="Tim za odobrenje"/>
+
+                    <filter string="Za Odobrenje" domain="[['state', '=', 'approval']]" name="dokumenta_za_odobrenje_filter"/>
+
+                    <filter string="Novi sa SEF-a" domain="[['sef_status', '=', 'New']]" name="nova_dokumenta_sa_sefa_filter"/>
+                    <filter string="Odobreni na SEF-a" domain="[['sef_status', '=', 'Approved']]" name="nova_dokumenta_sa_sefa_filter"/>
+                    <filter string="Samo Prejektna dokumenta" domain="[['document_type', '=', 'project']]" name="samo_projektna_dokumenta__filter"/>
+                    <separator/>
+                    <filter name="due_date" string="Datum dospeca" date="datum_dospeca"/>
+                     <separator/>
+                    <filter name="late" string="Dospele a ne proknjizene" domain="['&amp;', ('datum_dospeca', '&lt;', time.strftime('%Y-%m-%d')), ('sef_status', '=', 'New')]" help="Overdue invoices, maturity date passed"/>
+                    <filter name="dospece_za_narednih_7" string="Dospevaju u narednih 7 dana" domain="[('datum_dospeca','&lt;', ((context_today() + relativedelta(days=7)).strftime('%Y-%m-%d')))]" />
+                    <separator/>
+                    <filter name="today" string="Danas"
+                            domain="[('create_date','&lt;=', datetime.datetime.combine(context_today()+datetime.timedelta(days=0), datetime.time(23,59,59)))
+                    ,('create_date','&gt;=', datetime.datetime.combine(context_today()+datetime.timedelta(days=0), datetime.time(2,0,1))),]"/>
+                    <filter name="yesterday" string="Juče"
+                            domain="[('create_date','&lt;=', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(23,59,59))),
+                            ('create_date','&gt;=', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(2,0,1))),]"/>
+                    <filter name="last7" string="Kreirane pre 7 dana"
+                            domain="[('create_date','&lt;=', datetime.datetime.combine(context_today()-datetime.timedelta(days=1), datetime.time(23,59,59))),
+                            ('create_date','&gt;=', datetime.datetime.combine(context_today()-datetime.timedelta(days=7), datetime.time(2,0,1))),]"/>
+-->
+  <!--        <filter invisible="1" string="Late Activities" name="activities_overdue"
+                        domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today"
+                        domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                        domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/> -->
+  <!--        <group expand="0" string="Group By">
+                        <filter string="Tip Dokumenta" name="tipdokumenta" domain="[]" context="{'group_by': 'document_type'}"/>
+                        <filter name="partner" string="Partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+                        <filter name="SEFstatus" string="SEF Status" domain="[]" context="{'group_by': 'sef_status'}"/>
+                        <filter string="Datum na dokumentu" name="datumdokumenta" domain="[]" context="{'group_by': 'document_date'}"/>
+                    </group>
+               </search></field>
+        </record> -->
+  <!--
+        <record id="action_ii_edk_document_package" model="ir.actions.act_window">
+            <field name="name">Documents</field>
+            <field name="res_model">ii.edk.document.package</field>
+        </record>
+
+        <menuitem
+                id="menu_ii_edk_document_package"
+                action="action_ii_edk_document_package"
+                parent="menu_ii_edk_root"
+                sequence="1"
+        />
+
+-->
+  <record id="action_ii_edk_sef" model="ir.actions.act_window">
+   <field name="name">SEF</field>
+   <field name="res_model">ii.edk.document.package</field>
+  </record>
+  <!-- Rad sa sef servisima -->
+  <menuitem groups="ii_edk_base.group_ii_edk_user" id="menu_sef" name="SEF servisi" parent="ii_edk_base.menu_ii_edk_root" sequence="95"/>
+  <record id="sef_get_invoice_wizard" model="ir.ui.view">
+   <field name="name">SEF provera faktura</field>
+   <field name="model">ii.sef.getinvoice.wizard</field>
+   <field name="type">form</field>
+   <field name="arch" type="xml">
+    <form string="SEF provera">
+     <p class="oe_gray">
+      Provera za period
+      <br/>
+     </p>
+     <group>
+      <group>
+       <field name="date_start" required="1"/>
+      </group>
+      <group>
+       <field name="date_end" required="1"/>
+      </group>
+     </group>
+     <footer>
+      <button class="oe_highlight" name="check_invoices" string="Proveri SEF" type="object"/>
+      <button special="cancel" string="Cancel"/>
+     </footer>
+    </form></field>
+  </record>
+  <record id="action_sef_get_invoice" model="ir.actions.act_window">
+   <field name="name">SEF provera faktura</field>
+   <field name="res_model">ii.sef.getinvoice.wizard</field>
+   <field name="view_mode">form</field>
+   <field name="target">new</field>
+  </record>
+  <menuitem action="action_sef_get_invoice" id="sef_get_invoice" name="Proveri SEF fakture" parent="menu_sef" sequence="5"/>
+  <menuitem action="action_ii_edk_sef" groups="ii_edk_base.group_ii_edk_user" id="menu_ii_edk_sef" name="Spisak dokumenata" parent="menu_sef" sequence="95"/>
+ </data>
+</odoo>

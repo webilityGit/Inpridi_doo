@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <record id="account_payment_mode_form" model="ir.ui.view">
+  <field name="name">account.payment.mode.form</field>
+  <field name="model">account.payment.mode</field>
+  <field name="arch" type="xml">
+   <form string="Payment Mode">
+    <sheet>
+     <widget bg_color="bg-danger" invisible="active == True" name="web_ribbon" title="Archived"/>
+     <group name="main">
+      <field name="name"/>
+      <field groups="!base.group_multi_company" invisible="1" name="company_id"/>
+      <field groups="base.group_multi_company" name="company_id"/>
+      <field invisible="1" name="active"/>
+      <field name="payment_method_id"/>
+      <field name="payment_type"/>
+      <field name="bank_account_link"/>
+      <field invisible="bank_account_link != 'fixed'" name="fixed_journal_id" required="bank_account_link == 'fixed'"/>
+      <field invisible="bank_account_link != 'variable'" name="variable_journal_ids" required="bank_account_link == 'variable'" widget="many2many_tags"/>
+     </group>
+     <group name="note" string="Note">
+      <field name="note" nolabel="1"/>
+     </group>
+    </sheet>
+   </form></field>
+ </record>
+ <record id="account_payment_mode_tree" model="ir.ui.view">
+  <field name="name">account.payment.mode.tree</field>
+  <field name="model">account.payment.mode</field>
+  <field name="arch" type="xml">
+   <tree>
+    <field name="name"/>
+    <field name="payment_method_id"/>
+    <field name="payment_type"/>
+    <field name="bank_account_link"/>
+    <field groups="!base.group_multi_company" invisible="1" name="company_id"/>
+    <field groups="base.group_multi_company" name="company_id"/>
+   </tree></field>
+ </record>
+ <record id="account_payment_mode_search" model="ir.ui.view">
+  <field name="name">account.payment.mode.search</field>
+  <field name="model">account.payment.mode</field>
+  <field name="arch" type="xml">
+   <search string="Search Payment Modes">
+    <field name="name"/>
+    <filter domain="[('payment_type', '=', 'inbound')]" name="inbound" string="Inbound"/>
+    <filter domain="[('payment_type', '=', 'outbound')]" name="outbound" string="Outbound"/>
+    <group name="groupby" string="Group By">
+     <filter context="{'group_by': 'payment_method_id'}" name="payment_method_groupby" string="Payment Method"/>
+    </group>
+   </search></field>
+ </record>
+ <record id="account_payment_mode_action" model="ir.actions.act_window">
+  <field name="name">Payment Modes</field>
+  <field name="res_model">account.payment.mode</field>
+  <field name="view_mode">tree,form</field>
+ </record>
+ <menuitem action="account_payment_mode_action" id="account_payment_mode_menu" parent="account.account_management_menu" sequence="25"/>
+</odoo>

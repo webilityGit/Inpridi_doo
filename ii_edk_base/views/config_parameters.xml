@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ii_edk_config_form" model="ir.ui.view">
+            <field name="name">ii_edk_config_form</field>
+            <field name="model">ii.edk.config</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="active"/>
+                            </group>
+                            <group>
+                                <field name="workbook_main_user_id"/>
+                                <field name="company_id"/>
+                               <!-- <field name="company_id" groups="base.group_multi_company"/>  -->
+                            </group>
+                        </group>
+                        <group name="visibility" string="Visibility and participants">
+                                <group>
+                                    <field name="visibility"/>
+                                    <field name="approval_participant_id"/>
+                                </group>
+                                <group>
+                                    <field name = "docType"/>
+                                    <field name = "classificationID_U"/>
+                                    <field name = "classificationID_I"/>
+                                </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ii_edk_config_tree" model="ir.ui.view">
+            <field name="name">ii_edk_config_tree</field>
+            <field name="model">ii.edk.config</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="active" invisible="True"/>
+                    <field name="name"/>
+                    <field name="workbook_main_user_id"/>
+                    <field name="visibility"/>
+                    <field name="approval_participant_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_ii_edk_config" model="ir.actions.act_window">
+            <field name="name">eDK Config</field>
+            <field name="res_model">ii.edk.config</field>
+        </record>
+
+        <menuitem
+                id="menu_ii_edk_config"
+                action="action_ii_edk_config"
+                parent="menu_ii_edk_configuration"
+                sequence="12"
+        />
+
+<!--  forma za tabelu tipova  projektne dokumentacije
+                <record id="xf_doc_project_types_form" model="ir.ui.view">
+            <field name="name">xf_doc_project_types_form</field>
+            <field name="model">xf.doc.project.types</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                            </group>
+                            <group>
+                                <field name="project_doc_group"/>
+
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record> -->
+
+    <!--
+        <record id="xf_doc_project_types_tree" model="ir.ui.view">
+            <field name="name">xf_doc_project_types_tree</field>
+            <field name="model">xf.doc.project.types</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="active" invisible="True"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="project_doc_group"/>
+                </tree>
+            </field>
+        </record>   -->
+
+   <!--     <record id="action_xf_doc_project_types" model="ir.actions.act_window">
+            <field name="name">Project Types Tabele</field>
+            <field name="res_model">xf.doc.project.types</field>
+        </record>  -->
+
+   <!--     <menuitem
+                id="menu_xf_doc_project_types"
+                action="action_xf_doc_project_types"
+                parent="menu_ii_edk_configuration"
+                sequence="12"
+        />   -->
+
+        <!--  forma za tabelu tipova  kategorije dokumentacije     -->
+    <!--            <record id="ii_edk_lista_kag_form" model="ir.ui.view">
+            <field name="name">ii_edk_lista_kag_form</field>
+            <field name="model">ii.edk.lista.kag</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="redni_broj"/>
+                                <field name="naziv_grupe"/>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="rok_cuvanja"/>
+                                <field name="klasifikaciona_oznaka"/>
+
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>  -->
+<!--
+        <record id="ii_edk_lista_kag_form" model="ir.ui.view">
+            <field name="name">ii_edk_lista_kag_form</field>
+            <field name="model">ii.edk.lista.kag</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+
+
+                                 <field name="name"/>
+                            </group>
+                            <group>
+
+                                <field name="rok_cuvanja_meseci"/>
+                                <field name="klasifikaciona_oznaka"/>
+
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>  -->
+
+<!--
+        <record id="ii_edk_lista_kag_tree" model="ir.ui.view">
+            <field name="name">ii_edk_lista_kag_tree</field>
+            <field name="model">ii.edk.lista.kag</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="name"/>
+
+                    <field name="rok_cuvanja_meseci"/>
+                    <field name="klasifikaciona_oznaka"/>
+                </tree>
+            </field>
+        </record>  -->
+
+
+
+       <!--      grupe    -->
+
+        <record id="view_document_category_group_form" model="ir.ui.view">
+            <field name="name">document.category.group.form</field>
+            <field name="model">ii.edk.lista.gkag</field>
+            <field name="arch" type="xml">
+                <form string="Document Category Group">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <label for="code_prefix_start" string="Code Prefix"/>
+                        <div>
+                            From <field name="code_prefix_start" class="oe_inline"/> to <field name="code_prefix_end" class="oe_inline"/>
+                        </div>
+                        <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_document_category_group_search" model="ir.ui.view">
+            <field name="name">document.category.group.search</field>
+            <field name="model">ii.edk.lista.gkag</field>
+            <field name="arch" type="xml">
+                <search string="Document Category groups">
+                    <field name="name"
+                           filter_domain="['|', ('code_prefix_start', '=like', self + '%'), ('name', 'ilike', self)]"
+                           string="Document Category group"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_document_category_group_tree" model="ir.ui.view">
+            <field name="name">document.category.group.tree</field>
+            <field name="model">ii.edk.lista.gkag</field>
+            <field name="arch" type="xml">
+                <tree string="Document Category group">
+                    <field name="code_prefix_start"/>
+                    <field name="code_prefix_end"/>
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_ii_edk_lista_gkag" model="ir.actions.act_window">
+            <field name="name">List of group of classification</field>
+            <field name="res_model">ii.edk.lista.gkag</field>
+        </record>
+
+        <menuitem
+                id="menu_ii_edk_lista_gkag"
+                action="action_ii_edk_lista_gkag"
+                parent="menu_ii_edk_configuration"
+                sequence="13"
+        />
+
+        <!--      Tipovi dokumenata   -->
+
+        <record id="view_ii_edk_document_type_form" model="ir.ui.view">
+            <field name="name">document.type.form</field>
+            <field name="model">ii.edk.document.type</field>
+            <field name="arch" type="xml">
+                <form string="Document Type">
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="vrsta"/>
+                        <field name="mandatory_signature"/>
+                        <field name="mandatory_approval"/>
+
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+  <!--      <record id="view_document_type_search" model="ir.ui.view">
+            <field name="name">document.type.search</field>
+            <field name="model">ii.edk.document.type</field>
+            <field name="arch" type="xml">
+                <search string="Document Type">
+                    <field name="name"
+                           filter_domain="['|', ('code_prefix_start', '=like', self + '%'), ('name', 'ilike', self)]"
+                           string="Document Category group"/>
+                </search>
+            </field>
+        </record>   -->
+
+        <record id="view_ii_edk_document_type_tree" model="ir.ui.view">
+            <field name="name">document.type.tree</field>
+            <field name="model">ii.edk.document.type</field>
+            <field name="arch" type="xml">
+                <tree string="Document Type">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="vrsta"/>
+                    <field name="mandatory_signature"/>
+                    <field name="mandatory_approval"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_ii_edk_document_type" model="ir.actions.act_window">
+            <field name="name">List of document types</field>
+            <field name="res_model">ii.edk.document.type</field>
+        </record>
+
+        <menuitem
+                id="menu_ii_edk_document_type"
+                action="action_ii_edk_document_type"
+                parent="menu_ii_edk_configuration"
+                sequence="13"
+        />
+    </data>
+</odoo>
