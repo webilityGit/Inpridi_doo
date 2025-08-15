@@ -11,7 +11,7 @@
                         <!--<img t-if="company.logo" t-att-src="image_data_url(company.logo)" style="max-height: 80px;" alt="Logo"/>-->
                     </div>
                     <div class="col-5 mb4 text-right">
-                        <div t-if="report-type == 'pdf'" class="text-muted">
+                        <div t-if="report_type == 'pdf'" class="text-muted">
                             Page: <li class="list-inline-item"><strong><span class="page"/> / <span class="topage"/> </strong></li>
                         </div>
                         <div>
