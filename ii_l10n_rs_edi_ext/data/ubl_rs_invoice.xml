@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Nasleđivanje UBL 2.1 template-a -->
+    <template id="account_invoice_ubl_21_export_cec_extended" inherit_id="account_edi_ubl_cii.ubl_20_Invoice">
+
+        <!-- Dodaj namespace cec i sbt ako već nije -->
+        <xpath expr="//*[local-name()='Invoice']" position="replace">
+            <Invoice
+                xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+                xmlns:cec="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+                xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns:sbt="http://mfin.gov.rs/srbdt/srbdtext">
+                <t t-if="vals.get('document_subtype') == 'final'">
+                    <cec:UBLExtensions>
+                        <cec:UBLExtension>
+                            <cec:ExtensionContent>
+                                <sbt:SrbDtExt>
+
+                                    <t t-foreach="vals.get('downpayment_lines', [])" t-as="dp">
+                                        <sbt:InvoicedPrepaymentAmount>
+                                            <cbc:ID t-out="dp.get('ref')"/>
+                                            <cac:TaxTotal>
+                                                <cbc:TaxAmount t-att-currencyID="dp.get('currency')" t-out="dp.get('tax_amount')"/>
+                                                <cac:TaxSubtotal>
+                                                    <cbc:TaxableAmount t-att-currencyID="dp.get('currency')" t-out="dp.get('taxable')"/>
+                                                    <cbc:TaxAmount t-att-currencyID="dp.get('currency')" t-out="dp.get('tax_amount')"/>
+                                                    <cac:TaxCategory>
+                                                        <cbc:ID>S</cbc:ID>
+                                                        <cbc:Percent t-out="dp.get('percent')"/>
+                                                        <cac:TaxScheme>
+                                                            <cbc:ID>VAT</cbc:ID>
+                                                        </cac:TaxScheme>
+                                                    </cac:TaxCategory>
+                                                </cac:TaxSubtotal>
+                                            </cac:TaxTotal>
+                                        </sbt:InvoicedPrepaymentAmount>
+                                    </t>
+
+                                    <sbt:ReducedTotals> 
+                                        <cac:TaxTotal> 
+                                            <cbc:TaxAmount t-att-currencyID="vals.get('currency')" t-out="vals.get('total_tax')"/> 
+                                            <cac:TaxSubtotal> 
+                                                <cbc:TaxableAmount t-att-currencyID="vals.get('currency')" t-out="vals.get('total_untaxed')"/>
+                                                <cbc:TaxAmount t-att-currencyID="vals.get('currency')" t-out="vals.get('total_tax')"/>
+                                                <cac:TaxCategory> 
+                                                    <cbc:ID>S</cbc:ID> 
+                                                    <cbc:Percent t-out="vals.get('percent')"/>
+                                                    <cac:TaxScheme> 
+                                                        <cbc:ID>VAT</cbc:ID> 
+                                                    </cac:TaxScheme> 
+                                                </cac:TaxCategory> 
+                                            </cac:TaxSubtotal> 
+                                        </cac:TaxTotal> 
+
+                                        <cac:LegalMonetaryTotal>
+                                            <cbc:TaxExclusiveAmount t-att-currencyID="vals.get('currency')" t-out="vals.get('total_untaxed')"/>
+                                            <cbc:TaxInclusiveAmount t-att-currencyID="vals.get('currency')" t-out="vals.get('total_inclusive')"/>
+                                            <cbc:PayableAmount t-att-currencyID="vals.get('currency')" t-out="vals.get('total_payable')"/>
+                                        </cac:LegalMonetaryTotal>
+                                    </sbt:ReducedTotals>
+
+                                </sbt:SrbDtExt> 
+                            </cec:ExtensionContent> 
+                        </cec:UBLExtension> 
+                    </cec:UBLExtensions>
+                </t>
+                <t t-call="{{InvoiceType_template}}"/>
+            </Invoice>
+        </xpath>
+    </template>
+</odoo>

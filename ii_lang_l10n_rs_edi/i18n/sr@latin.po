@@ -1,0 +1,330 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_rs_edi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-27 09:04+0000\n"
+"PO-Revision-Date: 2025-01-27 09:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_rs_edi
+#: model_terms:ir.ui.view,arch_db:l10n_rs_edi.view_move_form
+msgid ""
+"<i class=\"fa fa-warning\" role=\"img\" title=\"Serbian eFaktura\"/>\n"
+"                            <span class=\"mx-1\">Serbian E-invoice Error:</span>"
+msgstr ""
+
+#. module: l10n_rs_edi
+#: model_terms:ir.ui.view,arch_db:l10n_rs_edi.res_config_settings_view_form
+msgid "API Key"
+msgstr ""
+
+#. module: l10n_rs_edi
+#: model:ir.model,name:l10n_rs_edi.model_account_move_send
+msgid "Account Move Send"
+msgstr "Faktura poslata na SEF"
+
+#. module: l10n_rs_edi
+#: model_terms:ir.ui.view,arch_db:l10n_rs_edi.res_config_settings_view_form
+msgid "Activate demo environment for sending e-invoice to eFaktura"
+msgstr "Aktiviraj demo okruženje za slanje eFaktura na SEF"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields.selection,name:l10n_rs_edi.selection__account_move__l10n_rs_tax_date_obligations_code__432
+msgid "By Billing System"
+msgstr "Prema datumu plaćanja"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields.selection,name:l10n_rs_edi.selection__account_move__l10n_rs_tax_date_obligations_code__35
+msgid "By Delivery Date"
+msgstr "Na osnovu datuma isporuke"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields.selection,name:l10n_rs_edi.selection__account_move__l10n_rs_tax_date_obligations_code__3
+msgid "By Issuance Date"
+msgstr "Na osnovu datuma izdavanja"
+
+#. module: l10n_rs_edi
+#: model:ir.model,name:l10n_rs_edi.model_res_company
+msgid "Companies"
+msgstr "Kpmpanija"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,help:l10n_rs_edi.field_res_partner__l10n_rs_edi_registration_number
+#: model:ir.model.fields,help:l10n_rs_edi.field_res_users__l10n_rs_edi_registration_number
+msgid ""
+"Company ID ( Matični Broj ) assigned by the Serbian Business Registers "
+"Agency (APR) "
+msgstr "Matićni broj kompanije izdat od stane APR-a"
+
+#. module: l10n_rs_edi
+#: model:ir.model,name:l10n_rs_edi.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfig. postavke"
+
+#. module: l10n_rs_edi
+#: model_terms:ir.ui.view,arch_db:l10n_rs_edi.res_config_settings_view_form
+msgid "Configure your eFaktura credentials here"
+msgstr "Konfiguriši prava pristupa za eFakturu"
+
+#. module: l10n_rs_edi
+#: model:ir.model,name:l10n_rs_edi.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: l10n_rs_edi
+#. odoo-python
+#: code:addons/l10n_rs_edi/models/res_partner.py:0
+#, python-format
+msgid "Customer identification number should be 8 or 13 digits"
+msgstr "Identifikacija korisika je broj izmedju 8 i 13 znakova"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields.selection,name:l10n_rs_edi.selection__account_move__l10n_rs_edi_state__sending_failed
+msgid "Error"
+msgstr "Greška"
+
+#. module: l10n_rs_edi
+#. odoo-python
+#: code:addons/l10n_rs_edi/wizard/account_move_send.py:0
+#, python-format
+msgid "Errors when generating the UBL document:"
+msgstr "Greške prilikom generisanja UBL dokumenta:"
+
+#. module: l10n_rs_edi
+#. odoo-python
+#: code:addons/l10n_rs_edi/wizard/account_move_send.py:0
+#, python-format
+msgid "Errors when submitting the e-invoice to eFaktura:"
+msgstr "Greške prilikom slanja eFakture:"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_invoice
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_edi_invoice
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_edi_invoice
+msgid "Invoice Id"
+msgstr "ID Faktrure"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_res_partner__l10n_rs_edi_public_funds
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_res_users__l10n_rs_edi_public_funds
+msgid "JBKJS"
+msgstr ""
+
+#. module: l10n_rs_edi
+#: model:ir.model,name:l10n_rs_edi.model_account_move
+msgid "Journal Entry"
+msgstr "Stavka dnevnika"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_is_eligible
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_edi_is_eligible
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_edi_is_eligible
+msgid "L10N Rs Edi Is Eligible"
+msgstr "L10N Rs Edi je podobno"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move_send__l10n_rs_edi_send_enable
+msgid "L10N Rs Edi Send Enable"
+msgstr "L10N Rs Edi Slanje aktivno"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move_send__l10n_rs_edi_send_readonly
+msgid "L10N Rs Edi Send Readonly"
+msgstr "L10N Rs Edi Slanje samo za čitanje"
+
+#. module: l10n_rs_edi
+#. odoo-python
+#: code:addons/l10n_rs_edi/wizard/account_move_send.py:0
+#, python-format
+msgid "Please configure the eFaktura API Key in the company settings."
+msgstr "Unesi API ključ u konfiguraciji kompanije"
+
+#. module: l10n_rs_edi
+#. odoo-python
+#: code:addons/l10n_rs_edi/models/res_partner.py:0
+#, python-format
+msgid "Public Funds ID(JBKJS) must be exactly five digits"
+msgstr "JBKJS mora biti tačno 5 znakova"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_purchase_invoice
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_edi_purchase_invoice
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_edi_purchase_invoice
+msgid "Purchase Invoice Id"
+msgstr ""
+
+#. module: l10n_rs_edi
+#. odoo-python
+#: code:addons/l10n_rs_edi/models/account_move.py:0
+#, python-format
+msgid "RS E-Invoice: %s"
+msgstr "RS E-Faktura: %s"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_uuid
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_edi_uuid
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_edi_uuid
+msgid "RS Invoice UUID"
+msgstr "RS Faktura UUID"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_res_partner__l10n_rs_edi_registration_number
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_res_users__l10n_rs_edi_registration_number
+msgid "Registration Number"
+msgstr "Matični broj"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_sales_invoice
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_edi_sales_invoice
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_edi_sales_invoice
+msgid "Sales Invoice Id"
+msgstr "ID prodajne fakture"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move_send__l10n_rs_edi_send_cir_checkbox
+msgid "Send To CIR"
+msgstr "Pošalji i u CIR"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_move_send__l10n_rs_edi_send_checkbox
+msgid "Send the E-Invoice to Government via eFaktura"
+msgstr "Pošalji E-Fakturu državnoj organizaciji preko SEF-a"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_move_send__l10n_rs_edi_send_cir_checkbox
+msgid "Send to Central Invoice Register(For B2G and the public sector)"
+msgstr "Pošalji u Centralni registar faktura (Za B2G i javnom sektoru)"
+
+#. module: l10n_rs_edi
+#. odoo-python
+#: code:addons/l10n_rs_edi/models/account_move.py:0
+#, python-format
+msgid "Sending Failed with Code: [%s] %s"
+msgstr "Slanje neuspelo - kod greške: [%s] %s"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields.selection,name:l10n_rs_edi.selection__account_move__l10n_rs_edi_state__sent
+msgid "Sent"
+msgstr "Poslato"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_error
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_edi_error
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_edi_error
+msgid "Serbia E-Invoice error"
+msgstr "E-Faktura greška"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_state
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_edi_state
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_edi_state
+msgid "Serbia E-Invoice state"
+msgstr "E-Faktura status"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_attachment_file
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_move__l10n_rs_edi_attachment_file
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_payment__l10n_rs_edi_attachment_file
+msgid "Serbia: technical field holding the e-invoice XML data."
+msgstr "Srbija: tehničko polje koje sadrži XML podatke eFakture."
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_attachment_file
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_edi_attachment_file
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_edi_attachment_file
+msgid "Serbian E-Invoice XML File"
+msgstr "E-Faktura XML fajl"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_tax_date_obligations_code
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_tax_date_obligations_code
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_tax_date_obligations_code
+msgid "Tax Date Obligations"
+msgstr "Datum PDV obaveze"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_is_eligible
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_move__l10n_rs_edi_is_eligible
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_payment__l10n_rs_edi_is_eligible
+msgid ""
+"Technical field to determine if this invoice is eligible to be e-invoiced."
+msgstr "Tehničko polje koje definiše da li je faktura adekvatna za slanje u SEF"
+
+#. module: l10n_rs_edi
+#. odoo-python
+#: code:addons/l10n_rs_edi/models/account_move.py:0
+#, python-format
+msgid "There was a problem with the connection with eFaktura: %s"
+msgstr "Postoji problem povezivanja sa SEF-om: %s "
+
+#. module: l10n_rs_edi
+#: model:ir.model,name:l10n_rs_edi.model_account_edi_xml_ubl_rs
+msgid "UBL 2.1 (RS eFaktura)"
+msgstr ""
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_uuid
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_move__l10n_rs_edi_uuid
+#: model:ir.model.fields,help:l10n_rs_edi.field_account_payment__l10n_rs_edi_uuid
+msgid "Unique Identifier for an invoice used as request id"
+msgstr "Jedinstveni identifikator za fakturu koji se koristi kao id zahteva"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,help:l10n_rs_edi.field_res_partner__l10n_rs_edi_public_funds
+#: model:ir.model.fields,help:l10n_rs_edi.field_res_users__l10n_rs_edi_public_funds
+msgid ""
+"Unique Identifier of Public Funds Users ( Jedinstveni Identifikator "
+"Korisnika Javnih Sredstava ) such as Government agencies, public "
+"institutions and state-owned enterprises."
+msgstr ""
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_res_company__l10n_rs_edi_demo_env
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_res_config_settings__l10n_rs_edi_demo_env
+msgid "Use Demo Environment"
+msgstr "Koristi Demo okruženje"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move_send__l10n_rs_edi_send_checkbox
+#: model_terms:ir.ui.view,arch_db:l10n_rs_edi.view_move_form
+msgid "eFaktura"
+msgstr ""
+
+#. module: l10n_rs_edi
+#: model_terms:ir.ui.view,arch_db:l10n_rs_edi.res_config_settings_view_form
+msgid "eFaktura (Serbia)"
+msgstr ""
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_res_company__l10n_rs_edi_api_key
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_res_config_settings__l10n_rs_edi_api_key
+msgid "eFaktura API Key"
+msgstr "eFaktura API Ključ"
+
+#. module: l10n_rs_edi
+#. odoo-python
+#: code:addons/l10n_rs_edi/wizard/account_move_send.py:0
+#, python-format
+msgid "eFaktura API Key is missing."
+msgstr "eFaktura API Ključ nedostaje."
+
+#. module: l10n_rs_edi
+#: model_terms:ir.ui.view,arch_db:l10n_rs_edi.res_config_settings_view_form
+msgid "eFaktura Credentials"
+msgstr "eFaktura kredencijali"
+
+#. module: l10n_rs_edi
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_bank_statement_line__l10n_rs_edi_attachment_id
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_move__l10n_rs_edi_attachment_id
+#: model:ir.model.fields,field_description:l10n_rs_edi.field_account_payment__l10n_rs_edi_attachment_id
+msgid "eFaktura XML Attachment"
+msgstr "eFaktura XML prilog"

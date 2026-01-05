@@ -1,0 +1,197 @@
+id,code,name,description,category_id/id,active
+ii_pdv_exemption_pdv_rs_10_2_1,PDV-RS-10-2-1,PDV-RS-10-2-1,ovde ide teks clana,pdv_cat_ae20,True
+ii_pdv_exemption_pdv_rs_10_2_2,PDV-RS-10-2-2,PDV-RS-10-2-2,"Poreski dužnik, u smislu ovog zakona, je primalac dobara, obveznik PDV, za promet građevinskih objekata i ekonomski deljivih celina u okviru tih objekata, uključujući i vlasničke udele na tim dobrima, izvršen od strane drugog obveznika PDV, u slučaju kada je ugovorom na osnovu kojeg se vrši promet tih dobara predviđeno da će se na taj promet obračunati PDV u skladu sa ovim zakonom",pdv_cat_ae20,True
+ii_pdv_exemption_pdv_rs_10_2_3,PDV-RS-10-2-3,PDV-RS-10-2-3,"primalac dobara i usluga iz oblasti građevinarstva, obveznik PDV, odnosno lice iz člana 9. stav 1. ovog zakona, za promet izvršen od strane obveznika PDV, ako je vrednost tog prometa veća od 500.000 dinara, bez PDV;",pdv_cat_ae20,True
+ii_pdv_exemption_pdv_rs_10_2_4,PDV-RS-10-2-4,PDV-RS-10-2-4,"primalac električne energije i prirodnog gasa koji se isporučuju preko prenosne, transportne i distributivne mreže, obveznik PDV koji je ova dobra nabavio radi dalje prodaje, za promet električne energije i prirodnog gasa izvršen od strane drugog obveznika PDV;",pdv_cat_ae20,True
+ii_pdv_exemption_pdv_rs_10_2_5_1,PDV-RS-10-2-5-1,PDV-RS-10-2-5-1,hipotekovane nepokretnosti kod realizacije hipoteke u skladu sa zakonom kojim se uređuje hipoteka;,pdv_cat_ae20,True
+ii_pdv_exemption_pdv_rs_10_2_5_2,PDV-RS-10-2-5-2,PDV-RS-10-2-5-2,predmeta založnog prava kod realizacije ugovora o zalozi u skladu sa zakonom kojim se uređuje založno pravo na pokretnim stvarima,pdv_cat_ae20,True
+ii_pdv_exemption_pdv_rs_10_2_5_3,PDV-RS-10-2-5-3,PDV-RS-10-2-5-3,dobara ili usluga nad kojima se sprovodi izvršenje u izvršnom postupku u skladu sa zakonom;,pdv_cat_ae20,True
+ii_pdv_exemption_pdv_rs_36b_6,PDV-RS-36b-6,PDV-RS-36b-6,,pdv_cat_ae20,True
+ii_pdv_exemption_pdv_rs_25_1_1,PDV-RS-25-1-1,PDV-RS-25-1-1,"PDV se ne plaća u prometu novca i kapitala, i to kod: poslovanja i posredovanja u poslovanju zakonskim sredstvima plaćanja, osim papirnog i kovanog novca koji se ne koristi kao zakonsko sredstvo plaćanja ili ima numizmatičku vrednost; usluga osiguranja i reosiguranja, uključujući prateće usluge posrednika i agenta (zastupnika) u osiguranju",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_1_1a,PDV-RS-25-1-1a,PDV-RS-25-1-1a,prenosa virtuelnih valuta i zamene virtuelnih valuta za novčana sredstva u skladu sa zakonom kojim se uređuje digitalna imovina;,pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_1_2,PDV-RS-25-1-2,PDV-RS-25-1-2,"poslovanja i posredovanja u poslovanju akcijama, udelima u društvima i udruženjima, obveznicama i drugim hartijama od vrednosti, osim poslovanja koje se odnosi na čuvanje i upravljanje hartijama od vrednosti",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_1_3,PDV-RS-25-1-3,PDV-RS-25-1-3,"kreditnih poslova, uključujući posredovanje, kao i novčanih pozajmica;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_1_4,PDV-RS-25-1-4,PDV-RS-25-1-4,"preuzimanja obaveza, garancija i drugih sredstava obezbeđenja, uključujući posredovanje;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_1_5,PDV-RS-25-1-5,PDV-RS-25-1-5,"poslovanja i posredovanja u poslovanju depozitima, tekućim i žiro računima, nalozima za plaćanje, kao i platnim prometom i doznakama;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_1_6,PDV-RS-25-1-6,PDV-RS-25-1-6,"poslovanja i posredovanja u poslovanju novčanim potraživanjima, čekovima, menicama i drugim sličnim hartijama od vrednosti, osim naplate potraživanja za druga lica",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_1_7,PDV-RS-25-1-7,PDV-RS-25-1-7,poslovanja društava za upravljanje investicionim fondovima u skladu sa propisima kojima se uređuju investicioni fondovi;,pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_1_8,PDV-RS-25-1-8,PDV-RS-25-1-8,poslovanja društava za upravljanje dobrovoljnim penzijskim fondovima u skladu sa propisima kojima se uređuju dobrovoljni penzijski fondovi i penzijski planovi,pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_1,PDV-RS-25-2-1,PDV-RS-25-2-1,"PDV se ne plaća i na promet usluga osiguranja i reosiguranja, uključujući prateće usluge posrednika i agenta (zastupnika) u osiguranju;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_10,PDV-RS-25-2-10,PDV-RS-25-2-10,"PDV se ne plaća i na promet: ljudskih organa, tkiva, telesnih tečnosti i ćelija, krvi i majčinog mleka",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_11,PDV-RS-25-2-11,PDV-RS-25-2-11,"usluga socijalnog staranja i zaštite, dečje zaštite i zaštite mladih, usluga ustanova socijalne zaštite, kao i sa njima neposredno povezanog prometa dobara i usluga od strane lica registrovanih za obavljanje tih delatnosti;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_12,PDV-RS-25-2-12,PDV-RS-25-2-12,"usluga smeštaja i ishrane učenika i studenata u školskim i studentskim domovima ili sličnim ustanovama, kao i sa njima neposredno povezan promet dobara i usluga;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_13,PDV-RS-25-2-13,PDV-RS-25-2-13,"usluga obrazovanja (predškolsko, osnovno, srednje, više i visoko) i profesionalne prekvalifikacije, kao i sa njima neposredno povezanog prometa dobara i usluga od strane lica registrovanih za obavljanje tih delatnosti, ako se ove delatnosti obavljaju u skladu sa propisima koji uređuju tu oblast;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_14,PDV-RS-25-2-14,PDV-RS-25-2-14,"usluga iz oblasti kulture i sa njima neposredno povezanog prometa dobara i usluga, od strane lica čija delatnost nije usmerena ka ostvarivanju dobiti, a koja su registrovana za tu delatnost;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_15,PDV-RS-25-2-15,PDV-RS-25-2-15,"usluga iz oblasti nauke i sa njima neposredno povezanog prometa dobara i usluga, od strane lica čija delatnost nije usmerena ka ostvarivanju dobiti, a koja su registrovana za tu delatnost;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_16,PDV-RS-25-2-16,PDV-RS-25-2-16,usluga verskog karaktera od strane registrovanih crkava i verskih zajednica i sa njima neposredno povezanog prometa dobara i usluga;,pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_17,PDV-RS-25-2-17,PDV-RS-25-2-17,"usluga javnog radiodifuznog servisa, osim usluga komercijalnog karaktera;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_18,PDV-RS-25-2-18,PDV-RS-25-2-18,usluga priređivanja igara na sreću;,pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_19,PDV-RS-25-2-19,PDV-RS-25-2-19,"usluga iz oblasti sporta i fizičkog vaspitanja licima koja se bave sportom i fizičkim vaspitanjem, od strane lica čija delatnost nije usmerena ka ostvarivanju dobiti, a koja su registrovana za tu delatnost.",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_2,PDV-RS-25-2-2,PDV-RS-25-2-2,"PDV se ne plaća i na promet:  zemljišta, kao i na davanje u zakup tog zemljišta;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_3,PDV-RS-25-2-3,PDV-RS-25-2-3,"objekata, osim prvog prenosa prava raspolaganja na novoizgrađenim građevinskim objektima ili ekonomski deljivim celinama u okviru tih objekata i prvog prenosa vlasničkog udela na novoizgrađenim građevinskim objektima ili ekonomski deljivim celinama u okviru tih objekata, kao i prometa objekata i ekonomski deljivih celina u okviru tih objekata, uključujući i vlasničke udele na tim dobrima, u slučaju kada je ugovorom na osnovu kojeg se vrši promet tih dobara, zaključenim između obveznika PDV, predviđeno da će se na taj promet obračunati PDV, pod uslovom da sticalac obračunati PDV može u potpunosti odbiti kao prethodni porez;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_3a,PDV-RS-25-2-3a,PDV-RS-25-2-3a,dobara i usluga za koje pri nabavci obveznik nije imao pravo na odbitak prethodnog poreza;,pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_3b,PDV-RS-25-2-3b,PDV-RS-25-2-3b,dobara za koja je u prethodnoj fazi prometa postojala obaveza plaćanja poreza u skladu sa zakonom kojim se uređuju porezi na imovinu;,pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_5,PDV-RS-25-2-5,PDV-RS-25-2-5,"udela, hartija od vrednosti, poštanskih vrednosnica, taksenih i drugih važećih vrednosnica po njihovoj utisnutoj vrednosti u Republici, osim vlasničkih udela iz člana 4. ovog zakona;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_6,PDV-RS-25-2-6,PDV-RS-25-2-6,"poštanskih usluga od strane javnog preduzeća, kao i sa njima povezanih isporuka dobara;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_7,PDV-RS-25-2-7,PDV-RS-25-2-7,"usluga koje pružaju zdravstvene ustanove u skladu sa propisima koji regulišu zdravstvenu zaštitu, uključujući i smeštaj, negu i ishranu bolesnika u tim ustanovama, osim apoteka i apotekarskih ustanova;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_8,PDV-RS-25-2-8,PDV-RS-25-2-8,"usluga koje pružaju lekari, stomatolozi ili druga lica u skladu sa propisima koji regulišu zdravstvenu zaštitu;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_25_2_9,PDV-RS-25-2-9,PDV-RS-25-2-9,"usluga i isporuke zubne protetike u okviru delatnosti zubnog tehničara, kao i isporuka zubne protetike od strane stomatologa;",pdv_cat_e,True
+ii_pdv_exemption_pdv_rs_3_dz,PDV-RS-3-DZ,PDV-RS-3-DZ,,pdv_cat_n,True
+ii_pdv_exemption_pdv_rs_4,PDV-RS-4,PDV-RS-4,"Promet dobara, u smislu ovog zakona, je prenos prava raspolaganja na telesnim stvarima (u daljem tekstu: dobra) licu koje tim dobrima može raspolagati kao vlasnik, ako ovim zakonom nije drukčije određeno.
+
+Dobrima se smatraju i voda, električna energija, gas i energija za grejanje, odnosno hlađenje.
+
+Prometom dobara, u smislu ovog zakona, smatra se i:
+
+1) prenos prava raspolaganja na dobrima uz naknadu na osnovu propisa ili drugog akta državnog organa, organa teritorijalne autonomije ili lokalne samouprave;
+
+2) predaja dobara na osnovu ugovora o prodaji sa odloženim plaćanjem kojim je ugovoreno da se pravo raspolaganja prenosi najkasnije otplatom poslednje rate;
+
+2a) predaja dobara na osnovu ugovora o lizingu, odnosno zakupu, zaključenog na određeni period, za pokretne ili nepokretne stvari, kada nijedna od ugovornih strana ne može raskinuti ugovor ako se strane pridržavaju ugovornih obaveza;
+
+3) prenos dobara od strane vlasnika komisionaru i od strane komisionara primaocu;
+
+4) isporuka dobara po ugovoru na osnovu kojeg se plaća provizija pri prodaji;
+
+5) prenos dobara od strane vlasnika konsignateru i od konsignatera primaocu dobara;
+
+6) isporuka dobara proizvedenih ili sastavljenih po nalogu naručioca, od materijala isporučioca, ako se ne radi samo o dodacima ili drugim sporednim materijalima;
+
+7) prenos prava raspolaganja na građevinskim objektima ili ekonomski deljivim celinama u okviru tih objekata;
+
+7a) prenos vlasničkog udela na građevinskim objektima ili ekonomski deljivim celinama u okviru tih objekata;
+
+8) razmena dobara za druga dobra ili usluge.
+
+Sa prometom dobara uz naknadu izjednačava se:
+
+1) uzimanje dobara koja su deo poslovne imovine poreskog obveznika za lične potrebe osnivača, vlasnika, zaposlenih ili drugih lica;
+
+2) svaki drugi promet dobara bez naknade;
+
+3) iskazani rashod (kalo, rastur, kvar i lom) iznad količine utvrđene aktom koji donosi Vlada Republike Srbije.
+
+Uzimanje dobara, odnosno svaki drugi promet dobara iz stava 4. ovog člana smatra se prometom dobara uz naknadu pod uslovom da se PDV obračunat u prethodnoj fazi prometa na ta dobra ili njihove sastavne delove može odbiti u potpunosti ili srazmerno, nezavisno od toga da li je ostvareno pravo na odbitak prethodnog poreza.
+
+Ako se uz isporuku dobara vrši sporedna isporuka dobara ili sporedno pružanje usluga, smatra se da je izvršena jedna isporuka dobara.
+
+Sporednom isporukom dobara iz stava 6. ovog člana ne smatra se prenos prava raspolaganja na:
+
+1) građevinskom objektu ili ekonomski deljivoj celini u okviru građevinskog objekta koja se smatra nepokretnošću u smislu zakona kojim se uređuje promet nepokretnosti;
+
+2) pokretnim stvarima uz prenos prava raspolaganja na nepokretnosti iz tačke 1) ovog stava.
+
+Kod prenosa celokupne ili dela imovine, sa ili bez naknade, ili kao ulog, isporuka svakog dobra u imovini koja se prenosi smatra se posebnim prometom.
+
+Kod isporuke u nizu jednog istog dobra, kod koje prvi isporučilac prenosi pravo raspolaganja neposredno poslednjem primaocu dobra, svaka isporuka dobra u nizu smatra se posebnom isporukom.
+
+Ministar nadležan za poslove finansija (u daljem tekstu: ministar) bliže uređuje kriterijume na osnovu kojih se određuje kada se predaja dobara na osnovu ugovora o lizingu, odnosno zakupu smatra prometom dobara iz stava 3. tačka 2a) ovog člana, kao i šta se smatra uzimanjem dobara koja su deo poslovne imovine poreskog obveznika i svakim drugim prometom bez naknade iz stava 4. ovog člana.",pdv_cat_n,True
+ii_pdv_exemption_pdv_rs_5,PDV-RS-5,PDV-RS-5,"Promet usluga, u smislu ovog zakona, su svi poslovi i radnje u okviru obavljanja delatnosti koji nisu promet dobara iz člana 4 ovog zakona.
+
+Promet usluga je i svako nečinjenje i trpljenje.
+
+Prometom usluga, u smislu ovog zakona, smatra se i:
+
+1) prenos, ustupanje i davanje na korišćenje autorskih i srodnih prava, patenata, licenci, zaštitnih znakova, kao i drugih prava intelektualne svojine;
+
+2) pružanje usluga uz naknadu na osnovu propisa ili drugog akta državnih organa, organa teritorijalne autonomije ili lokalne samouprave;
+
+3) predaja dobara proizvedenih ili sastavljenih po nalogu naručioca, od materijala naručioca;
+
+4) razmena usluga za dobra ili usluge;
+
+5) predaja jela i pića za konzumaciju na licu mesta;
+
+6) (brisana);
+
+7) ustupanje udela ili prava.
+
+Sa prometom usluga uz naknadu izjednačava se:
+
+1) upotreba dobara koja su deo poslovne imovine poreskog obveznika za lične potrebe osnivača, vlasnika, zaposlenih ili drugih lica, odnosno upotreba dobara u neposlovne svrhe poreskog obveznika;
+
+2) pružanje usluga koje poreski obveznik izvrši bez naknade za lične potrebe osnivača, vlasnika, zaposlenih ili drugih lica, odnosno drugo pružanje usluga bez naknade u neposlovne svrhe poreskog obveznika.
+
+Upotreba dobara iz stava 4. tačka 1) ovog člana smatra se prometom usluga uz naknadu pod uslovom da se PDV obračunat u prethodnoj fazi prometa na ta dobra može odbiti u potpunosti ili srazmerno, nezavisno od toga da li je ostvareno pravo na odbitak prethodnog poreza.
+
+Ako se uz uslugu vrši sporedno pružanje usluga ili sporedna isporuka dobara, smatra se da je pružena jedna usluga.
+
+Sporednim pružanjem usluga iz stava 6. ovog člana ne smatra se usluga iznajmljivanja, odnosno davanja na korišćenje građevinskog objekta ili ekonomski deljive celine u okviru građevinskog objekta koja se smatra nepokretnošću u smislu zakona kojim se uređuje promet nepokretnosti.
+
+Kod prenosa celokupne ili dela imovine, sa ili bez naknade, ili kao ulog, svaka usluga koja se pruža prenosom imovine smatra se posebnim prometom.
+
+Ministar bliže uređuje šta se smatra upotrebom dobara i pružanjem usluga iz stava 4. ovog člana.",pdv_cat_n,True
+ii_pdv_exemption_pdv_rs_6_1_1_bn,PDV-RS-6-1-1 (BN),PDV-RS-6-1-1 (BN),"Smatra se da promet dobara i usluga, u smislu ovog zakona, nije izvršen kod: prenosa celokupne ili dela imovine, sa ili bez naknade, ili kao ulog, ako je sticalac poreski obveznik ili tim prenosom postane poreski obveznik i ako produži da obavlja istu delatnost;",pdv_cat_n,True
+ii_pdv_exemption_pdv_rs_11_1_1,PDV-RS-11-1-1,PDV-RS-11-1-1,"Mesto prometa dobara je mesto:  u kojem se dobro nalazi u trenutku slanja ili prevoza do primaoca ili, po njegovom nalogu, do trećeg lica, ako dobro šalje ili prevozi isporučilac, primalac ili treće lice, po njegovom nalogu;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_11_1_2,PDV-RS-11-1-2,PDV-RS-11-1-2,"ugradnje ili montaže dobra, ako se ono ugrađuje ili montira od strane isporučioca ili, po njegovom nalogu, od strane trećeg lica;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_11_1_3,PDV-RS-11-1-3,PDV-RS-11-1-3,"u kojem se dobro nalazi u trenutku isporuke, ako se dobro isporučuje bez otpreme, odnosno prevoza;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_11_1_4,PDV-RS-11-1-4,PDV-RS-11-1-4,"u kojem primalac električne energije, prirodnog gasa i energije za grejanje, odnosno hlađenje, čija se isporuka vrši preko prenosne, transportne i distributivne mreže, a koji je ova dobra nabavio radi dalje prodaje, ima sedište ili stalnu poslovnu jedinicu kojima se dobra isporučuju;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_11_1_5,PDV-RS-11-1-5,PDV-RS-11-1-5,"prijema vode, električne energije, prirodnog gasa i energije za grejanje, odnosno hlađenje, za krajnju potrošnju.",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_11_3,PDV-RS-11-3,PDV-RS-11-3,"Izuzetno od stava 1. tačka 3) ovog člana, ako se promet dobara vrši na brodu, odnosno u letilici ili vozu u toku prevoza putnika, mestom prometa smatra se mesto polaska broda, letilice ili voza.",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_4,PDV-RS-12-4,PDV-RS-12-4,"Ako se promet usluga vrši poreskom obvezniku, mestom prometa usluga smatra se mesto u kojem primalac usluga ima sedište ili stalnu poslovnu jedinicu ako se promet usluga vrši stalnoj poslovnoj jedinici koja se ne nalazi u mestu u kojem primalac usluga ima sedište, odnosno mesto u kojem primalac usluga ima prebivalište ili boravište.",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_1,PDV-RS-12-6-1,PDV-RS-12-6-1,"Izuzetno od st. 4. i 5. ovog člana, mestom prometa usluga:  u vezi sa nepokretnostima, uključujući i usluge posredovanja kod prometa nepokretnosti, smatra se mesto u kojem se nalazi nepokretnost;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_2,PDV-RS-12-6-2,PDV-RS-12-6-2,"prevoza lica, smatra se mesto gde se obavlja prevoz, a ako se prevoz obavlja i u Republici i u inostranstvu, odredbe ovog zakona primenjuju se samo na deo prevoza izvršen u Republici;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_3,PDV-RS-12-6-3,PDV-RS-12-6-3,"prevoza dobara koja se pruža licu koje nije poreski obveznik, smatra se mesto gde se obavlja prevoz, a ako se prevoz obavlja i u Republici i u inostranstvu, odredbe ovog zakona primenjuju se samo na deo prevoza izvršen u Republici;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_4_1,PDV-RS-12-6-4-1,PDV-RS-12-6-4-1,"Izuzetno od st. 4. i 5. ovog člana, mestom prometa usluga:  smatra se mesto gde su usluge stvarno pružene, ako se radi o: uslugama koje se odnose na prisustvovanje kulturnim, umetničkim, sportskim, naučnim, obrazovnim, zabavnim ili sličnim događajima (sajmovi, izložbe i dr.), uključujući i pomoćne usluge u vezi sa prisustvovanjem tim događajima;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_4_2,PDV-RS-12-6-4-2,PDV-RS-12-6-4-2,"uslugama organizatora događaja iz podtačke (1) ove tačke, pruženih licu koje nije poreski obveznik;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_4_3,PDV-RS-12-6-4-3,PDV-RS-12-6-4-3,"pomoćnim uslugama u vezi sa prevozom, kao što su utovar, istovar, pretovar i slično, pruženih licu koje nije poreski obveznik;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_4_4,PDV-RS-12-6-4-4,PDV-RS-12-6-4-4,"uslugama procene pokretnih stvari, odnosno radova na pokretnim stvarima pruženih licu koje nije poreski obveznik;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_4_5,PDV-RS-12-6-4-5,PDV-RS-12-6-4-5,uslugama predaje jela i pića za konzumaciju na licu mesta;,pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_5,PDV-RS-12-6-5,PDV-RS-12-6-5,"iznajmljivanja prevoznih sredstava na kraći vremenski period, smatra se mesto u kojem se prevozno sredstvo stvarno stavlja na korišćenje primaocu usluge;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_6,PDV-RS-12-6-6,PDV-RS-12-6-6,"iznajmljivanja prevoznih sredstava, osim iz tačke 5) ovog stava, pruženih licu koje nije poreski obveznik, smatra se mesto u kojem to lice ima sedište, prebivalište ili boravište;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_1,PDV-RS-12-6-7-1,PDV-RS-12-6-7-1,"koje se pružaju licu koje nije poreski obveznik, smatra se mesto sedišta, prebivališta ili boravišta primaoca usluga, ako se radi o uslugama:  prenosa, ustupanja i davanja na korišćenje autorskih i srodnih prava, prava na patente, licence, zaštitne znakove i druga prava intelektualne svojine;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_10,PDV-RS-12-6-7-10,PDV-RS-12-6-7-10,telekomunikacija,pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_11,PDV-RS-12-6-7-11,PDV-RS-12-6-7-11,radijskog i televizijskog emitovanja;,pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_12,PDV-RS-12-6-7-12,PDV-RS-12-6-7-12,pruženih elektronskim putem;,pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_2,PDV-RS-12-6-7-2,PDV-RS-12-6-7-2,oglašavanja;,pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_3,PDV-RS-12-6-7-3,PDV-RS-12-6-7-3,"savetnika, inženjera, advokata, revizora i sličnih usluga, kao i prevodilaca za usluge prevođenja, uključujući i prevođenje u pisanom obliku;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_4,PDV-RS-12-6-7-4,PDV-RS-12-6-7-4,"obrade podataka i ustupanja, odnosno davanja informacija, uključujući i informacije o poslovnim postupcima i iskustvu;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_5,PDV-RS-12-6-7-5,PDV-RS-12-6-7-5,preuzimanja obaveze da se u potpunosti ili delimično odustane od obavljanja neke delatnosti ili od korišćenja nekog prava iz ove tačke;,pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_6,PDV-RS-12-6-7-6,PDV-RS-12-6-7-6,"bankarskog i finansijskog poslovanja i poslovanja u oblasti osiguranja, uključujući reosiguranje, osim iznajmljivanja sefova;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_7,PDV-RS-12-6-7-7,PDV-RS-12-6-7-7,stavljanja na raspolaganje osoblja;,pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_8,PDV-RS-12-6-7-8,PDV-RS-12-6-7-8,"iznajmljivanja pokretnih stvari, osim prevoznih sredstava;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_7_9,PDV-RS-12-6-7-9,PDV-RS-12-6-7-9,"omogućavanja pristupa mreži prirodnog gasa, mreži za prenos električne energije i mreži za grejanje, odnosno hlađenje, transporta i distribucije putem tih mreža, kao i drugih usluga koje su neposredno povezane sa tim uslugama;",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_6_8,PDV-RS-12-6-8,PDV-RS-12-6-8,"posredovanja kod prometa dobara ili usluga koja se pruža licu koje nije poreski obveznik, smatra se mesto u kojem je izvršen promet dobara ili usluga koji je predmet posredovanja.",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_12_9,PDV-RS-12-9,PDV-RS-12-9,"Izuzetno od stava 6. tačka 4) podtačka (5) ovog člana, ako se usluge predaje jela i pića za konzumaciju na licu mesta faktički pružaju na brodu, odnosno u letilici ili vozu u toku prevoza putnika, mestom prometa smatra se mesto polaska broda, letilice ili voza.",pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_61,PDV-RS-61,PDV-RS-61,Vlada Republike Srbije urediće izvršavanje ovog zakona na teritoriji Autonomne pokrajine Kosovo i Metohija za vreme važenja Rezolucije Saveta bezbednosti OUN broj 1244.,pdv_cat_o,True
+ii_pdv_exemption_pdv_rs_17_4_2,PDV-RS-17-4-2,PDV-RS-17-4-2,"Poreska osnovica (u daljem tekstu: osnovica) kod prometa dobara i usluga jeste iznos naknade (u novcu, stvarima ili uslugama) koju obveznik prima ili treba da primi za isporučena dobra ili pružene usluge od primaoca dobara ili usluga ili trećeg lica, uključujući subvencije i druga primanja (u daljem tekstu: subvencije), u koju nije uključen PDV, ako ovim zakonom nije drukčije propisano. Osnovica ne sadrži: iznose koje obveznik naplaćuje u ime i za račun drugog, ako te iznose prenosi licu u čije ime i za čiji račun je izvršio naplatu i ako su ti iznosi posebno evidentirani;",pdv_cat_oe,True
+ii_pdv_exemption_pdv_rs_17_4_3,PDV-RS-17-4-3,PDV-RS-17-4-3,"iznose koje obveznik potražuje za izdatke koje je platio u ime i za račun primaoca dobara ili usluga, ako su ti iznosi posebno evidentirani.",pdv_cat_oe,True
+ii_pdv_exemption_pdv_rs_3np_ostalo,PDV-RS-3NP-ostalo,PDV-RS-3NP-ostalo,,pdv_cat_oe,True
+ii_pdv_exemption_pdv_rs_4_4_2np,PDV-RS-4-4-2NP,PDV-RS-4-4-2NP,,pdv_cat_oe,True
+ii_pdv_exemption_pdv_rs_5_4_2np,PDV-RS-5-4-2NP,PDV-RS-5-4-2NP,,pdv_cat_oe,True
+ii_pdv_exemption_pdv_rs_7a_4,PDV-RS-7a-4,PDV-RS-7a-4,Višenamenski vrednosni vaučer iz stava 2. ovog člana je vrednosni vaučer koji nije jednonamenski vrednosni vaučer iz stava 3. ovog člana.,pdv_cat_oe,True
+ii_pdv_exemption_pdv_rs_9,PDV-RS-9,PDV-RS-9,"Republika i njeni organi, organi teritorijalne autonomije i lokalne samouprave, kao i pravna lica osnovana zakonom, odnosno aktom organa Republike, teritorijalne autonomije ili lokalne samouprave u cilju obavljanja poslova državne uprave ili lokalne samouprave (u daljem tekstu: Republika, organi i pravna lica), nisu obveznici u smislu ovog zakona ako obavljaju promet dobara i usluga iz delokruga organa, odnosno u cilju obavljanja poslova državne uprave ili lokalne samouprave.
+
+Republika, organi i pravna lica obveznici su za promet dobara i usluga iz stava 1. ovog člana za koji bi izuzimanje od obaveze u smislu stava 1. ovog člana moglo da dovede do narušavanja konkurencije, kao i za promet dobara i usluga izvan delokruga organa, odnosno van obavljanja poslova državne uprave ili lokalne samouprave, a koji su oporezivi u skladu sa ovim zakonom. Smatra se da bi izuzimanje od obaveze u smislu stava 1. ovog člana moglo da dovede do narušavanja konkurencije, u smislu ovog zakona, ako promet dobara i usluga iz stava 1. ovog člana, osim Republike, organa i pravnih lica, vrši i drugo lice.",pdv_cat_oe,True
+ii_pdv_exemption_pdv_rs_6_1_1,PDV-RS-6-1-1,PDV-RS-6-1-1,,pdv_cat_r,True
+ii_pdv_exemption_pdv_rs_6a,PDV-RS-6a,PDV-RS-6a,,pdv_cat_r,True
+ii_pdv_exemption_pdv_rs_33,PDV-RS-33,PDV-RS-33,,pdv_cat_ss,True
+ii_pdv_exemption_pdv_rs_35_7,PDV-RS-35-7,PDV-RS-35-7,,pdv_cat_ss,True
+ii_pdv_exemption_pdv_rs_36_5,PDV-RS-36-5,PDV-RS-36-5,,pdv_cat_ss,True
+ii_pdv_exemption_pdv_rs_36b_4,PDV-RS-36b-4,PDV-RS-36b-4,,pdv_cat_ss,True
+ii_pdv_exemption_pdv_rs_24_1_1,PDV-RS-24-1-1,PDV-RS-24-1-1,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_10,PDV-RS-24-1-10,PDV-RS-24-1-10,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_11,PDV-RS-24-1-11,PDV-RS-24-1-11,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_12,PDV-RS-24-1-12,PDV-RS-24-1-12,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_13,PDV-RS-24-1-13,PDV-RS-24-1-13,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_14,PDV-RS-24-1-14,PDV-RS-24-1-14,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_15,PDV-RS-24-1-15,PDV-RS-24-1-15,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_16_1,PDV-RS-24-1-16-1,PDV-RS-24-1-16-1,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_16_2,PDV-RS-24-1-16-2,PDV-RS-24-1-16-2,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_16_3,PDV-RS-24-1-16-3,PDV-RS-24-1-16-3,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_16_4,PDV-RS-24-1-16-4,PDV-RS-24-1-16-4,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_16a,PDV-RS-24-1-16a,PDV-RS-24-1-16a,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_16b,PDV-RS-24-1-16b,PDV-RS-24-1-16b,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_16g,PDV-RS-24-1-16g,PDV-RS-24-1-16g,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_16v,PDV-RS-24-1-16v,PDV-RS-24-1-16v,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_17,PDV-RS-24-1-17,PDV-RS-24-1-17,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_2,PDV-RS-24-1-2,PDV-RS-24-1-2,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_3,PDV-RS-24-1-3,PDV-RS-24-1-3,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_5,PDV-RS-24-1-5,PDV-RS-24-1-5,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_5a,PDV-RS-24-1-5a,PDV-RS-24-1-5a,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_6,PDV-RS-24-1-6,PDV-RS-24-1-6,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_6a,PDV-RS-24-1-6a,PDV-RS-24-1-6a,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_7,PDV-RS-24-1-7,PDV-RS-24-1-7,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_7a,PDV-RS-24-1-7a,PDV-RS-24-1-7a,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_8,PDV-RS-24-1-8,PDV-RS-24-1-8,,pdv_cat_z,True
+ii_pdv_exemption_pdv_rs_24_1_9,PDV-RS-24-1-9,PDV-RS-24-1-9,,pdv_cat_z,True

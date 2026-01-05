@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ii_pdv_category_user,access.ii.pdv.category.user,model_ii_pdv_category,base.group_user,1,1,1,1
+access_ii_pdv_category_manager,access.ii.pdv.category.manager,model_ii_pdv_category,base.group_system,1,1,1,1
+access_ii_pdv_exemption_reason_user,access.ii.pdv.exemption.reason.user,model_ii_pdv_exemption_reason,base.group_user,1,1,1,1
+access_ii_pdv_exemption_reason_manager,access.ii.pdv.exemption.reason.manager,model_ii_pdv_exemption_reason,base.group_system,1,1,1,1

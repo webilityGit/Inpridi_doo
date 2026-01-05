@@ -1,0 +1,9 @@
+id,code,mandatory_signature,mandatory_approval,name,vrsta
+doc_type_uf_UF,UF,0,0,Faktura dobavljača,fin
+doc_type_ir_IR,IR,0,0,Faktura kupca,fin
+doc_type_ar_AR,AR,0,0,Avansna faktura,fin
+doc_type_ko_KO,KO,0,0,Knjiga odobrenja,fin
+doc_type_kz_KZ,KZ,0,0,Knjiga zaduženja,fin
+doc_type_fr_FR,FR,0,0,Fiskalni račun,fin
+doc_type_ug_UG,UG,0,0,Ugovor,low
+doc_type_od_OD,OD,0,0,Ostala dokumenta,others

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ii_edk_document_package_form" model="ir.ui.view">
+            <field name="name">ii_edk_document_package_form</field>
+            <field name="model">ii.edk.document.package</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="is_initiator" invisible="1"/>
+                    <field name="is_approver" invisible="1"/>
+                    <header>
+                        <button class="oe_highlight" 
+                                confirm="Please confirm that you want to send documents for approval" 
+                                invisible="is_initiator != True or state not in ['draft']" 
+                                name="action_send_for_approval" 
+                                string="Send for Approval" 
+                                type="object"/>
+                        <button class="oe_highlight" 
+                                invisible="is_approver != True or state not in ['approval']" 
+                                name="action_approve_wizard" 
+                                string="Approve" 
+                                type="object"/>
+                        <button class="oe_highlight" 
+                                groups="account.group_account_manager" 
+                                invisible="state not in ['approved']" 
+                                name="action_post_wizard" 
+                                string="Proknjiženo" 
+                                type="object"/>
+                        <button class="oe_highlight" 
+                                invisible="is_approver != True or state not in ['approved']" 
+                                name="action_post_wizard" 
+                                string="Post" 
+                                type="object"/>
+                        <button invisible="is_approver != True or state not in ['approval']" 
+                                name="action_reject_wizard" 
+                                string="Reject" 
+                                type="object"/>
+                        <button invisible="is_initiator != True or state not in ['rejected','cancelled']" 
+                                name="action_draft" 
+                                string="Set to Draft" 
+                                type="object"/>
+                        <button confirm="Please confirm that you want to cancel approval process" 
+                                invisible="is_initiator != True or state not in ['approval']" 
+                                name="action_cancel" 
+                                string="Cancel" 
+                                type="object"/>
+                        <button groups="base.group_system" 
+                                invisible="state not in ['approved']" 
+                                name="action_cancel" 
+                                string="Force Cancel" 
+                                type="object"/>
+                        <field name="state" statusbar_visible="draft,approval,approved" widget="statusbar"/>
+                        <field name="archive_state" statusbar_visible="approved" widget="statusbar"/>
+                    </header>
+
+                    <sheet class="o_form_sheet" style="max-width:75%; float:left;">
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <field name="doc_move" widget="radio" options="{'horizontal': true}"/>
+                        </group>
+
+                        <group class="o_form_group_col_2">
+                            <group>
+                                <field name="create_date" readonly="1"/>
+                                <field name="broj_predmeta"/>
+                                <field name="classification_number"/>
+                                <field name="document_type"/>
+                            </group>
+                            <group>
+                                <field name="document_title"/>
+                                <field name="arh_position"/>
+                                <field name="workbook_main_user_id"/>
+                            </group>
+                        </group>
+
+                        <group class="o_form_group_col_2">
+                            <group string="Description">
+                                <field name="source"/>
+                                <field name="description"/>
+                            </group>
+                            <group string="Document Attributes">
+                                <field name="document_date"/>
+                                <field name="document_ref" required="1"/>
+                                <field name="amount_total"/>
+                                <field name="partner_id" required="1"/>
+                            </group>
+                        </group>
+
+                        <group invisible="state not in ['approved', 'posted']">
+                            <group string="Odoo KUF">
+                                <field name="document_ref_internal" readonly="state != 'approved'"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="documents" string="Attachments">
+                                <field name="document_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="file" filename="file_name"/>
+                                        <field name="file_name" invisible="1"/>
+                                    </list>
+                                    <form>
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="file" required="1" widget="pdf_viewer"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+
+                            <page name="approvers" string="Approval Process">
+                                <field name="participant_ids">
+                                    <list editable="bottom">
+                                        <field name="step"/>
+                                        <field name="user_id"/>
+                                        <field name="role"/>
+                                        <field name="state"/>
+                                        <field name="method" invisible="1"/>
+                                        <field name="notes"/>
+                                    </list>
+                                    <form>
+                                        <group class="o_form_group_col_2">
+                                            <field name="user_id"/>
+                                            <field name="role"/>
+                                            <field name="step"/>
+                                            <field name="state"/>
+                                            <field name="method" invisible="1"/>
+                                            <field name="notes"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+
+                            <page name="approval_setup" string="Approval Setup" invisible="is_initiator != True">
+                                <group class="o_form_group_col_2">
+                                    <group string="Visibility">
+                                        <field name="company_id" groups="base.group_multi_company"/>
+                                        <field name="visibility"/>
+                                    </group>
+                                    <group string="Approval">
+                                        <field name="approval_participant_id"/>
+                                        <field name="method"/>
+                                        <field name="approval_state"/>
+                                        <field name="approval_step"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page name="archive_metadata" string="Document Metadata">
+                                <group class="o_form_group_col_2">
+                                    <group>
+                                        <field name="izvorni_oblik"/>
+                                        <field name="arh_format"/>
+                                        <field name="datum_nastanka"/>
+                                        <field name="broj_sertifikata"/>
+                                    </group>
+                                    <group>
+                                        <field name="rok_cuvanja"/>
+                                        <field name="datum_arhiviranja"/>
+                                        <field name="datum_potvrde_integriteta"/>
+                                        <field name="rok_za_obnovu"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <!--Invoice Lines-->
+                            <page name="invoice_lines" string="Invoice Lines">
+                                <field name="invoice_lines_ids">
+                                    <list editable="bottom">
+                                        <field name="invoice_line"/>
+                                        <field name="quantity"/>
+                                        <field name="price" width="150"/>
+                                        <field name="vat"/>
+                                        <field name="tax_category_code"/>
+                                        <field name="tax_category_reason_code" invisible="vat != 0"/>
+                                        <field name="tax_exemption_reason" invisible="vat != 0"/>
+                                        <field name="total_price"/>
+                                    </list>
+                                    <!--form>
+                                        <group>
+                                            <field name="invoice_line"/>
+                                            <field name="quantity"/>
+                                            <field name="price"/>
+                                            <field name="vat"/>
+                                            <field name="total_price" readonly="1"/>
+                                        </group>
+                                    </form-->
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <!--div class="oe_chatter o_chatter_position_right" style="width:25%; float:right;">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div-->
+
+                    <chatter reload_on_attachment="True"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="ii_edk_document_package_list" model="ir.ui.view">
+            <field name="name">ii_edk_document_package_list</field>
+            <field name="model">ii.edk.document.package</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="document_ref"/>
+                    <field name="document_date"/>
+                    <field name="create_date"/>
+                    <field name="partner_id"/>
+                    <field name="document_ref_internal"/>
+                    <field name="approval_participant_id"/>
+                    <field name="workbook_main_user_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="state" widget="badge" 
+                           decoration-info="state == 'draft'"
+                           decoration-warning="state == 'approval'"
+                           decoration-success="state == 'approved'"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="ii_edk_document_package_filter" model="ir.ui.view">
+            <field name="name">ii.edk_document_package.select</field>
+            <field name="model">ii.edk.document.package</field>
+            <field name="priority" eval="15"/>
+            <field name="arch" type="xml">
+                <search string="Search documents for approval">
+                    <field name="name"/>
+                    <field name="document_ref"/>
+                    <field name="description"/>
+                    <field name="partner_id" operator="child_of"/>
+                    <field name="workbook_main_user_id"/>
+                    <field name="approval_participant_id"/>
+                    
+                    <filter name="for_approval" 
+                            string="For Approval" 
+                            domain="[('state', '=', 'approval')]"/>
+                    
+                    <separator/>
+                    <filter name="today" 
+                            string="Today" 
+                            domain="[('create_date', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter name="last_week" 
+                            string="Last 7 Days" 
+                            domain="[('create_date', '&gt;=', (context_today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                    
+                    <group expand="0" string="Group By">
+                        <filter name="partner" 
+                                string="Partner" 
+                                context="{'group_by': 'partner_id'}"/>
+                        <filter name="document_date" 
+                                string="Document Date" 
+                                context="{'group_by': 'document_date'}"/>
+                        <filter name="state_group" 
+                                string="State" 
+                                context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_ii_edk_document_package" model="ir.actions.act_window">
+            <field name="name">Documents</field>
+            <field name="res_model">ii.edk.document.package</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem action="action_ii_edk_document_package" 
+                  id="menu_ii_edk_document_package" 
+                  parent="menu_ii_edk_root" 
+                  sequence="1"/>
+    </data>
+</odoo>

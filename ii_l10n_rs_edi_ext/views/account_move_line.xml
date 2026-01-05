@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <record id="view_move_form" model="ir.ui.view">
+    <field name="model">account.move</field>
+    <field name="inherit_id" ref="account.view_move_form"/>
+    <field name="arch" type="xml">
+      <!-- ovde ubaciti polja za pdv detalje na liniji    -->
+      <xpath expr="//field[@name='tax_ids']" position="after">
+        <field name="ubl_cii_tax_category_code"/>
+        <field name="ubl_cii_tax_exemption_reason_code"
+               options="{'no_create': False}"
+               domain="[('category_id', '=', ubl_cii_tax_category_code)]"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

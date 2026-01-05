@@ -1,0 +1,152 @@
+<odoo>
+    <!-- ========================= -->
+    <!--   PDV CATEGORIES          -->
+    <!-- ========================= -->
+    <record id="view_ii_pdv_category_form" model="ir.ui.view">
+        <field name="name">ii.pdv.category.form</field>
+        <field name="model">ii.pdv.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="active" invisble="1"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Razlozi izuzeca">
+                            <field name="exemption_reason_ids">
+                                <list editable="bottom">
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="active"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ii_pdv_category_list" model="ir.ui.view">
+        <field name="name">ii.pdv.category.list</field>
+        <field name="model">ii.pdv.category</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ii_pdv_category_search" model="ir.ui.view">
+        <field name="name">ii.pdv.category.search</field>
+        <field name="model">ii.pdv.category</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="name"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ii_pdv_category" model="ir.actions.act_window">
+        <field name="name">PDV Kategorije</field>
+        <field name="res_model">ii.pdv.category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ========================= -->
+    <!--   EXEMPTION REASONS       -->
+    <!-- ========================= -->
+    <record id="view_ii_pdv_exemption_reason_form" model="ir.ui.view">
+        <field name="name">ii.pdv.exemption.reason.form</field>
+        <field name="model">ii.pdv.exemption.reason</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="active" invisble="1"/>
+                        </group>
+                        <group>
+                            <field name="category_id"/>
+                        </group>
+                    </group>
+                    <field name="description"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ii_pdv_exemption_reason_list" model="ir.ui.view">
+        <field name="name">ii.pdv.exemption.reason.list</field>
+        <field name="model">ii.pdv.exemption.reason</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="category_id"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ii_pdv_exemption_reason_search" model="ir.ui.view">
+        <field name="name">ii.pdv.exemption.reason.search</field>
+        <field name="model">ii.pdv.exemption.reason</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Naziv"/>
+                <field name="code"/>
+                <field name="category_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Grupisi po">
+                    <filter string="PDV Kategorija" name="groupby_category" context="{'group_by': 'category_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ii_pdv_exemption_reason" model="ir.actions.act_window">
+        <field name="name">Osnovi za izuzece</field>
+        <field name="res_model">ii.pdv.exemption.reason</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ========================= -->
+    <!--            MENUS          -->
+    <!-- ========================= -->
+    <menuitem id="menu_ii_pdv_root"
+            name="PDV"
+            parent="account.menu_finance_configuration"
+            sequence="150"/>
+
+    <menuitem id="menu_ii_pdv_category"
+            name="PDV Kategorije"
+            parent="menu_ii_pdv_root"
+            action="action_ii_pdv_category"
+            sequence="10"/>
+    
+    <menuitem id="menu_ii_pdv_exemption_reason"
+            name="Osnovi za izuzece"
+            parent="menu_ii_pdv_root"
+            action="action_ii_pdv_exemption_reason"
+            sequence="20"/>
+
+</odoo>

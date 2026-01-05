@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.l10n_rs_edi</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='delivery_date']" position="after">
+                <field name="l10n_rs_invoice_out_subtype" 
+                    invisible="country_code != 'RS' and move_type != 'out_invoice'"
+                    required="country_code == 'RS' and move_type == 'out_invoice'"
+                    readonly="1"/>    
+            </xpath>
+
+            <xpath expr="//field[@name='delivery_date']" position="attributes">
+                <!--attribute name="required">country_code == 'RS' and l10n_rs_invoice_out_subtype == 'avans'</attribute-->
+                <attribute name="required">country_code == 'RS' and l10n_rs_tax_date_obligations_code in ['3', '35']</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='l10n_rs_turnover_date']" position="after">
+                    <field name="vat_liability_arising" string="PDV se obracunava"/>
+
+                    <div class="o_notification o_warning" invisible="show_vat_warning == False">
+                        <span class="fa fa-exclamation-triangle me-2 text-warning"/> Stavke fakture moraju imati isključivo 0% PDV.
+                    </div>
+            </xpath>
+
+            <xpath expr="//field[@name='l10n_rs_tax_date_obligations_code']" position="attributes">
+                <attribute name="invisible">vat_liability_arising == False</attribute>
+            </xpath>
+
+            <!-- ovde ubaciti polja za pdv detalje na liniji    -->
+            <xpath expr="//field[@name='tax_ids']" position="after">
+                <field name="ubl_cii_tax_category_code"/>
+
+                <!--TODO visibility-->
+                <field name="ubl_cii_tax_exemption_reason_code" />
+                <field name="ubl_cii_tax_exemption_reason"/>
+            </xpath>      
+        </field>
+    </record>
+
+</odoo>

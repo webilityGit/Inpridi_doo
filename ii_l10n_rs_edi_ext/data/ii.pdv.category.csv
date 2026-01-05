@@ -1,0 +1,12 @@
+id,code,name,description,active
+pdv_cat_ae20,AE20,AE20,AE20 - Promet po stopi od 20% za koji je poreski dužnik primalac,True
+pdv_cat_ae10,AE10,AE10,AE10 - Promet po stopi od 10% za koji je poreski dužnik primalac,True
+pdv_cat_e,E,E,E - Poresko oslobođenje bez prava na odbitak prethodnog poreza,True
+pdv_cat_s20,S20,S20,S20 - Promet po stopi od 20%,True
+pdv_cat_s10,S10,S10,S10 - Promet po stopi od 10%,True
+pdv_cat_z,Z,Z,Z - Poresko oslobođenje sa pravom na odbitak prethodnog poreza,True
+pdv_cat_r,R,R,R - Izuzimanje od PDV-a,True
+pdv_cat_o,O,O,O - Nije predmet oporezivanja PDV-om,True
+pdv_cat_oe,OE,OE,OE - Nije predmet oporezivanja PDV2,True
+pdv_cat_ss,SS,SS,SS - Posebni postupci oporezivanja,True
+pdv_cat_n,N,N,N - Anuliranje,True
