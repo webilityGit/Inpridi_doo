@@ -1,5 +1,8 @@
 from odoo import api, models
 import logging
+
+from datetime import date
+
 _logger = logging.getLogger(__name__)
 class AccountEdiXmlUBL21RS(models.AbstractModel):
     _name = "account.edi.xml.ubl.rs"
@@ -20,6 +23,9 @@ class AccountEdiXmlUBL21RS(models.AbstractModel):
 
 
         vals['vals'].update({
+            ##
+            'issue_date': date.today(),
+            ##
             'customization_id': self._get_customization_ids()['efaktura_rs'],
             'billing_reference_vals': self._l10n_rs_get_billing_reference(invoice), 
             'document_type_code': doc_type,  # Lubi
@@ -67,7 +73,60 @@ class AccountEdiXmlUBL21RS(models.AbstractModel):
                         'line_id': line.id,
                         'line_name': line.name or line.product_id.display_name,
                     })
+
+            current_lines = invoice.invoice_line_ids.filtered(lambda l: not l.is_downpayment)
             
+            line_extension_amount = sum(float(line.price_subtotal) for line in current_lines)
+            total_tax_amount = sum(float(line.price_total - line.price_subtotal) for line in current_lines)
+            total_inclusive_amount = sum(float(line.price_total) for line in current_lines)
+
+            percents = {d['percent'] for d in down_lines}
+            current_tax_percent = current_lines[0].tax_ids[:1].amount if current_lines and current_lines[0].tax_ids else 0.0
+            percents.add(current_tax_percent)
+            
+            total_percent = percents.pop() if len(percents) == 1 else 0.0
+
+            total_prepaid = sum(d['inclusive'] for d in down_lines)
+            payable_amount = total_inclusive_amount - total_prepaid 
+
+            ##!!!!!
+            vals['vals']['monetary_total_vals'].update({
+                'currency': invoice.currency_id,
+                'currency_dp': 2,
+                'line_extension_amount': line_extension_amount,
+                'tax_exclusive_amount': line_extension_amount,
+                'tax_inclusive_amount': total_inclusive_amount,
+                'allowance_total_amount': 0.0,
+                'charge_total_amount': 0.0,
+                'prepaid_amount': total_prepaid,
+                'payable_rounding_amount': 0.0,
+                'payable_amount': payable_amount, 
+            })
+
+            # vals['vals']['tax_total_vals'] = [{
+            #     'currency': invoice.currency_id,
+            #     'currency_dp': 2,
+            #     'tax_amount': total_tax_amount,
+            #     'tax_subtotal_vals': [{
+            #         'currency': invoice.currency_id,
+            #         'currency_dp': 2,
+            #         'taxable_amount': line_extension_amount,
+            #         'tax_amount': total_tax_amount,
+            #     }],
+            # }]
+            vals['vals']['tax_total_vals'][0].update({
+                'currency': invoice.currency_id,
+                'currency_dp': 2,
+                'tax_amount': total_tax_amount,
+            })
+
+            vals['vals']['tax_total_vals'][0]['tax_subtotal_vals'][0].update({
+                'currency': invoice.currency_id,
+                'currency_dp': 2,
+                'taxable_amount': line_extension_amount,
+                'tax_amount': total_tax_amount,
+            })
+
             total_untaxed = sum(d['taxable'] for d in down_lines)
             total_tax = sum(d['tax_amount'] for d in down_lines)
             total_inclusive = sum(d['inclusive'] for d in down_lines)
@@ -81,11 +140,13 @@ class AccountEdiXmlUBL21RS(models.AbstractModel):
                 'total_untaxed': total_untaxed,
                 'total_tax': total_tax,
                 'total_inclusive': total_inclusive,
-                'total_payable': total_payable,
+                'total_payable': total_payable, ###
                 'total_percent': total_percent,
                 'currency': invoice.currency_id.name,
                 'billing_reference_vals': billing_reference_vals
             })
+
+            
 
             #otklanjanje cvora OrderReference
             vals['vals'].pop('order_reference', None)

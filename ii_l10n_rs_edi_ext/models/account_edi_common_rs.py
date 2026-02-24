@@ -50,44 +50,25 @@ class AccountEdiCommon(models.AbstractModel):
     # HELPERS
     # -------------------------------------------------------------------------
 
- #   def _get_uom_unece_code(self, uom):
+    def _get_uom_unece_code(self, uom):
 
     
  #   Override Odoo mapping za jedinicu mere.
  #   - Ako je kompanija u Srbiji → koristi H87 (lokalni zahtev)
  #   - Inače koristi default iz Odoo mappinga (C62 i dr.)
 
-#      company = self.env.company 
-#       if hasattr(self, "move") and self.move:
-#            company = self.move.company_id
-#        elif hasattr(self, "company_id"):
-#            company = self.company_id
-#        xmlid = uom.get_external_id()
-#        if xmlid and uom.id in xmlid:
-#            if company and company.country_id.code == "RS":  # Srbija
-#                return 'H87'
-#            return self.UOM_TO_UNECE_CODE.get(xmlid[uom.id], 'C62')
-#        # default fallback
-#        return 'H87'
-
-    def _get_uom_unece_code(self, uom):
-        company = self.env.company
+        company = self.env.company 
         if hasattr(self, "move") and self.move:
             company = self.move.company_id
         elif hasattr(self, "company_id"):
             company = self.company_id
-
-        xmlid_map = uom.get_external_id() or {}
-        xmlid = xmlid_map.get(uom.id)
-
-        # Srbija: forsiraj H87 
-        if company and company.country_id.code == "RS":
-            return "H87"
-
-        # Ostale zemlje: mapiranje ako postoji, u suprotnom C62
-        if xmlid:
-            return UOM_TO_UNECE_CODE.get(xmlid, "C62")
-        return "C62"
+        xmlid = uom.get_external_id()
+        if xmlid and uom.id in xmlid:
+            if company and company.country_id.code == "RS":  # Srbija
+                return 'H87'
+            return self.UOM_TO_UNECE_CODE.get(xmlid[uom.id], 'C62')
+        # default fallback
+        return 'H87'
 
     @api.model
     def _get_tax_unece_codes(self, customer, supplier, tax):
@@ -96,7 +77,7 @@ class AccountEdiCommon(models.AbstractModel):
         
         invoice = self.env['account.move'].browse(self.env.context['active_id'])
 
-        if invoice.vat_liability_arising:
+        if not invoice.vat_liability_arising:
             #TODO for line in lines
             first_line = invoice.invoice_line_ids[:1]
 

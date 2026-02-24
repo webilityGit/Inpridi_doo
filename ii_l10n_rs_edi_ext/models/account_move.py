@@ -14,7 +14,7 @@ class AccountMove(models.Model):
     _inherit = 'account.move'
 
     l10n_rs_invoice_out_subtype = fields.Selection(                   # Lubi
-        string="Invouce out subtype",
+        string="Invoice out subtype",
         selection=[
             ('avans', 'Advanced Payment Invoice'),
             ('final', 'Final Invoice'),
@@ -50,6 +50,9 @@ class AccountMove(models.Model):
                     move.l10n_rs_invoice_out_subtype = 'final'
                     move.l10n_rs_tax_date_obligations_code = '35'
                     return
+                else:
+                    move.l10n_rs_invoice_out_subtype = 'regular'
+                    move.l10n_rs_tax_date_obligations_code = '3'
             else:
                 move.l10n_rs_invoice_out_subtype = 'regular'
                 move.l10n_rs_tax_date_obligations_code = '3'
