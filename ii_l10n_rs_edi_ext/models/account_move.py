@@ -7,7 +7,7 @@ from requests.exceptions import Timeout, ConnectionError, HTTPError
 import logging
 _logger = logging.getLogger(__name__)
 DEMO_EFAKTURA_URL = 'https://demoefaktura.mfin.gov.rs/api/publicApi/sales-invoice/ubl'
-EFAKTURA_URL = 'https://efakturadev.mfin.gov.rs/api/publicApi/sales-invoice/ubl'
+EFAKTURA_URL = 'https://efaktura.mfin.gov.rs/api/publicApi/sales-invoice/ubl'
 
 
 class AccountMove(models.Model):
